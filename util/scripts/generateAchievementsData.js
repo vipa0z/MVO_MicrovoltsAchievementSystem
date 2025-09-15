@@ -144,7 +144,7 @@ function run() {
   }
 
   // =============================================
-  // LEVEL ACHIEVEMENTS GENERATION
+  // LEVEL REWARDS GENERATION
   // =============================================
 
   const levels = Array.from({ length: 95 }, (_, i) => i + 10); // Levels 10-104
@@ -173,62 +173,65 @@ function run() {
   };
 
   // MP mapping for each level (progressive rewards)
+  // ADJUST HERE: in tho, players were rewarded for each 10+ level for example lvl 20, 30, 40...x
+  // TODO: adjust here to match 
   function getLevelMpReward(level) {
 
-    if (level >= 10 && level <= 14) {
-      return 1000;
+    if (level == 20 || level == 25) {
+      return 5000;
     }
-    if (level >= 15 && level <= 19) {
-      return 2000;
-    }
-
-    if (level >= 20 && level <= 29) {
+    if (level == 25) {
       return 3000;
     }
 
-    if (level >= 30 && level <= 39) {
+    if (level == 30) {
+      return 9000;
+    }
+    if (level == 35) {
+      return 5000;
+    }
+    if (level == 40) {
       return 10000;
     }
-    if (level >= 40 && level <= 49) {
-      return 10000;
+    if (level == 45) {
+      return 5000;
     }
 
-    if (level === 50) {
-      return 20000; // Milestone bonus for level 50
+    if (level == 50) {
+      return 10000;
     }
-    if (level >= 51 && level <= 59) {
-      return 6000;
+    if (level == 55) {
+      return 9000;
     }
 
     if (level === 60) {
       return 20000; // Milestone bonus for level 60
     }
-    if (level >= 61 && level <= 69) {
-      return 6000;
+    if (level == 65) {
+      return 7000;
     }
 
     if (level === 70) {
-      return 20000; // Milestone bonus for level 70
+      return 20000; 
     }
-    if (level >= 71 && level <= 79) {
+    if (level == 75) {
+      return 7000;
+    }
+    if (level == 80) {
+      return 20000;
+    }
+    if (level == 85) {
+      return 7000;
+    }
+    if (level == 90) {
+      return 20000;
+    }
+    if (level == 95) {
       return 10000;
     }
 
-    if (level === 80) {
-      return 20000; // Milestone bonus for level 80
-    }
-    if (level >= 81 && level <= 89) {
-      return 10000;
-    }
-
-    if (level === 90) {
-      return 20000; // Milestone bonus for level 90
-    }
-    if (level >= 91 && level <= 99) {
-      return 10000;
-    }
     if (level === 100) {
-      return 50000; // 50k
+      return 50000;
     }
     if (level >= 101 && level <= 104) {
       return 50000;
