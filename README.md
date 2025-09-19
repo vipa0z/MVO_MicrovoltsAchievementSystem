@@ -1,7 +1,7 @@
 
 ## MV Overvolts Overview
 
-The MVO Rewards Server handles various in-game reward mechanisms and administrative tasks.
+The MVO  Server handles various in-game reward mechanisms.
 ```
     |  \/  | \ \ / /  / _ \  
     | |\/| |  \ V /  | (_) | 
@@ -13,17 +13,6 @@ Microvolts OverVolt v 0.5
 ──────────────────────────────────────────────────────────────
 ```
 
-
-
-## Table of Contents
-
-- [Features](#features)
-- [Development Status](#development-status)
-- [Compatibility](#compatibility)
-- [Authentication](#authentication)
-- [Documentation](#documentation)
-
----
 
 ## Features
 - **Referral Wheel** 
