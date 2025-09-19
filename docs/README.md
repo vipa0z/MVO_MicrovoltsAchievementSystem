@@ -79,10 +79,9 @@ This command executes the dbUpdater.js script, which performs the following acti
 After running successfully, the script will exit. You can then proceed.
 
 ### admin user creation
---create-admin <username> <password> (Admin User Creation)
 
 The --create-admin command allows you to create an initial administrator account.
-
+This user will be assigned Grade 7, which is the highest. the token privileges of this user will allow you to add staff members with grades above 1. it cam also be used to manage the wheel and shop data via the MVO API.
 Usage:
 
 node server.js --create-admin <username> <password>
@@ -96,7 +95,7 @@ Requirements:
     Username: Must be at least 3 characters long and contain only alphanumeric characters (A-Z, a-z, 0-9).
     Password: Must be at least 6 characters long and include at least one non-alphanumeric symbol (e.g., !, @, #, _).
 
-This command will create a new user with Grade 7, which is the highest. the new admin user can add staff members with grades above 1. the admin can also be  used to manage the wheel and shop data via the MVO API.
+
 
 ### Configuring wheel and shop items:
 you can add wheel rewards or shop items via the API or by manually modifying the `/data/config` files. more on this can be found in [data configuration](api-reference/configuration.md)
