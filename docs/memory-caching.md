@@ -29,7 +29,7 @@ Reward configs (wheel, shop, etc.) are also cached in memory.
 
 - `MemoryLoader.getAllItems()` → full item list  
 - `MemoryLoader.getItems(category)` → reward items for a category  
-- `MemoryLoader.getAchievementsData()` → achievements config  
+- `MemoryLoader.getAchievementsData()` → achievements data  
 
 ---
 
