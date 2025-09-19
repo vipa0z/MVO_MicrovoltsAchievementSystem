@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This document serves as a user manual and reference for the MVO Rewards Server. This server provides a backend for various in-game reward systems for Microvolts, including a spinning wheel, an event shop, daily playtime rewards, and an achievement system.
+This document serves as a user manual and reference for the MVO Rewards Server. This server provides a backend for various in-game reward systems for Microvolts, including a spinning wheel, an event shop, daily playtime chest, and an achievement system.
 
 ## Detailed Documentation
 
@@ -45,6 +45,9 @@ The server supports the following command-line arguments:
 
 *   `--populate`: Runs database migrations and updates before starting the server.
 *   `--create-admin <username> <password>`: Creates an initial admin user.
+*   `--generate-achievements`: generates the achievements data via the script in `util/scripts/`.
+*   (to be added) `--generate-chest`: generates the data for the daily chest. it's  also located in scripts dir .
+   
 *   `--help` or `-h`: Displays the help menu.
 
 See the [Server Configuration](./configuration.md) guide for more details.
@@ -53,8 +56,10 @@ See the [Server Configuration](./configuration.md) guide for more details.
 
 ### `util/scripts/generateAchievementData.js`
 
-This script generates the `data/configs/achievements_data.json` file. This file contains the definitions for all level-up and weapon-kill achievements. To regenerate this file, run:
+This script generates the `data/configs/achievements_data.json` file given itemInfo.json and weaponInfo.json. achievements data contains the definitions for all level-up and weapon-kill achievements. To regenerate this file, run:
 
 ```bash
+node server.js --generate-achievements
+or:
 node util/scripts/generateAchievementData.js
 ```
