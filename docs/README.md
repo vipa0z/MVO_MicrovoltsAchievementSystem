@@ -110,4 +110,4 @@ Requirements:
 
 ---
 ### Configuring wheel and shop items:
-you can add wheel rewards or shop items via the API or by manually modifying the `/data/config` files. more on this can be found in [data configuration](api-reference/configuration.md)
+you can add wheel rewards or shop items via the API or by manually modifying the `/data/config` files. more on this can be found in [config API](api-reference/admin.md)
