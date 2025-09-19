@@ -31,35 +31,7 @@ This document serves as a user manual and reference for the MVO Rewards Server. 
     npm install
     ```
 
-## Usage
-
-To start the server, run the following command:
-
-```bash
-node server.js
-```
-
-### Command-Line Arguments
-
-The server supports the following command-line arguments:
-
-*   `--populate`: Runs database migrations and updates before starting the server.
-*   `--create-admin <username> <password>`: Creates an initial admin user.
-*   `--generate-achievements`: generates the achievements data via the script in `util/scripts/`.
-*   (to be added) `--generate-chest`: generates the data for the daily chest. it's  also located in scripts dir .
-   
-*   `--help` or `-h`: Displays the help menu.
+### Configuration
 
 See the [Server Configuration](./configuration.md) guide for more details.
 
-## Scripts
-
-### `util/scripts/generateAchievementData.js`
-
-This script generates the `data/configs/achievements_data.json` file given itemInfo.json and weaponInfo.json. achievements data contains the definitions for all level-up and weapon-kill achievements. To regenerate this file, run:
-
-```bash
-node server.js --generate-achievements
-or:
-node util/scripts/generateAchievementData.js
-```
