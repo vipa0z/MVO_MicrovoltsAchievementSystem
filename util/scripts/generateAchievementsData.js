@@ -1,10 +1,7 @@
 const fs = require("fs");
 
-// =============================================
-// CONFIGURATION DATA
-// =============================================
 
-// -----ADD UNIQUE ITEMS TO SPECIFIC LEVELS HERE-----
+// -----EDIT UNIQUE ITEMS TO SPECIFIC LEVELS HERE-----
 const specialItems = {
   50: [{ itemId: 4383140, itemName: "Green Wreath Crown (Remake)" }],
   60: [{ itemId: 4382950, itemName: "Silver Wreath Crown" }],
@@ -12,7 +9,23 @@ const specialItems = {
     { itemId: 4382950, itemName: "Golden Wreath Crown" },
     { itemId: 5336562, itemName: "Coupon Box" },
   ],
-  // 80: [{ itemId: 999, itemName: "Silver Death Scythe" }],
+  80: [
+ // { itemId: itemidhere, itemName: "placeholder name" }],
+    { itemId: 5336562, itemName: "Coupon Box" }],
+
+
+  90: [
+ // { itemId: itemidhere, itemName: "placeholder name" }],
+    { itemId: 5336562, itemName: "Coupon Box" }],
+  100: [
+    { itemId: 5336562, itemName: "Coupon Box" },
+ // { itemId: itemidhere, itemName: "placeholder name" }],
+  ],
+  105: [
+    { itemId: 5336562, itemName: "Coupon Box" },
+ // { itemId: itemidhere, itemName: "placeholder name" }],
+    { itemId: 5336100, itemName: "Random Coupon BOX(P)" }
+  ],
 };
 
 
@@ -98,39 +111,37 @@ function run() {
   // =============================================
   // HELPER FUNCTIONS
   // =============================================
-  // Battery quantity logic for levels
+  // Battery quantity logic for milestone levels
   function getLevelBattery(level) {
     if ([20, 30, 40, 50, 60, 70, 80, 90, 100].includes(level)) return 10;
-    if (level >= 21 && level <= 29) return 5;
-    if (level >= 31 && level <= 39) return 5;
-    if (level >= 41 && level <= 49) return 5;
-    if (level >= 51 && level <= 59) return 5;
-    if (level >= 61 && level <= 69) return 5;
-    if (level >= 71 && level <= 79) return 5;
-    if (level >= 81 && level <= 89) return 5;
-    if (level >= 91 && level <= 99) return 5;
-    if (level >= 101 && level <= 104) return 7;
+    if (level === 10) return 3;
+    if (level === 105) return 15; // Special reward for max level
     return 5;
   }
 
-  // Get coin rewards for specific level
+  // Get coin rewards for milestone levels
   function getCoinRewardForLevel(level) {
-    if (level >= 30 && level <= 44) {
+    if (level >= 30 && level <= 40) {
       return [{ itemId: 4308108, itemName: "2 Coins" }];
-    } else if (level >= 45 && level <= 100) {
+    } else if (level >= 50 && level <= 100) {
       return [{ itemId: 4308109, itemName: "3 Coins" }];
+    } else if (level === 105) {
+      return [{ itemId: 4308103, itemName: "10 Coins" }];
     }
     return [];
   }
 
-  // Get coupon rewards for specific level
+  // Get coupon rewards for milestone levels
   function getCouponRewardForLevel(level) {
-    if (level >= 45 && level <= 49) {
-      return [{ itemId: 4305019, itemName: "1 Coupon" }];
-    } else if (level >= 51 && level <= 80) {
+    if (level >= 50 && level <= 80) {
       return [{ itemId: 4306009, itemName: "3 Coupons" }];
-    } else if (level >= 81 && level <= 89) {
+    } else if (level >= 90 && level <= 100) {
       return [{ itemId: 5336100, itemName: "Random Coupon BOX(P)" }];
+    } else if (level === 105) {
+      return [
+        { itemId: 5336100, itemName: "Random Coupon BOX(P)" },
+        { itemId: 4306009, itemName: "3 Coupons" }
+      ]; // Double coupon reward for max level
     }
     return [];
   }
@@ -147,7 +158,8 @@ function run() {
   // LEVEL REWARDS GENERATION
   // =============================================
 
-  const levels = Array.from({ length: 95 }, (_, i) => i + 10); // Levels 10-104
+  // Generate only milestone levels: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 105
+  const levels = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 105];
   // MP Items mapping (itemIds from json file)
   const mpItems = {
     100: 4600001,
@@ -172,73 +184,22 @@ function run() {
     1000000: 4610000
   };
 
-  // MP mapping for each level (progressive rewards)
-  // ADJUST HERE: in tho, players were rewarded for each 10+ level for example lvl 20, 30, 40...x
-  // TODO: adjust here to match 
+  // MP mapping for milestone levels (10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 105)
   function getLevelMpReward(level) {
-
-    if (level == 20 || level == 25) {
-      return 5000;
+    switch (level) {
+      case 10: return 1000;   // Starting milestone
+      case 20: return 5000;   // Early milestone
+      case 30: return 9000;   // Mid-early milestone
+      case 40: return 10000;  // Mid milestone
+      case 50: return 10000;  // Mid-high milestone
+      case 60: return 20000;  // High milestone
+      case 70: return 20000;  // Higher milestone
+      case 80: return 20000;  // Very high milestone
+      case 90: return 20000;  // Near-max milestone
+      case 100: return 50000; // Max level milestone
+      case 105: return 100000; // Ultimate milestone reward
+      default: return 500;    // Fallback (shouldn't be used)
     }
-    if (level == 25) {
-      return 3000;
-    }
-
-    if (level == 30) {
-      return 9000;
-    }
-    if (level == 35) {
-      return 5000;
-    }
-    if (level == 40) {
-      return 10000;
-    }
-    if (level == 45) {
-      return 5000;
-    }
-
-    if (level == 50) {
-      return 10000;
-    }
-    if (level == 55) {
-      return 9000;
-    }
-
-    if (level === 60) {
-      return 20000; // Milestone bonus for level 60
-    }
-    if (level == 65) {
-      return 7000;
-    }
-
-    if (level === 70) {
-      return 20000; 
-    }
-    if (level == 75) {
-      return 7000;
-    }
-    if (level == 80) {
-      return 20000;
-    }
-    if (level == 85) {
-      return 7000;
-    }
-    if (level == 90) {
-      return 20000;
-    }
-    if (level == 95) {
-      return 10000;
-    }
-
-    if (level === 100) {
-      return 50000;
-    }
-    if (level >= 101 && level <= 104) {
-      return 50000;
-    }
-
-    // Default fallback
-    return 500;
   }
 
   const levelAchievements = levels.map(level => {
@@ -370,3 +331,8 @@ function run() {
   process.exit(0);
 }
 module.exports = { run }
+
+// Run directly if this file is executed
+if (require.main === module) {
+  run();
+}
