@@ -32,7 +32,7 @@ The web interface is technically there, but the CSS is having an identity crisis
 ![Current GUI State](docs/achievements-buggy.png)
 
 *The achievement system works great via API, but the GUI needs some TLC*
-**⏸ Development Pause**: I'll be busy for the next month, so active development is on halt. The current version is somewhat useable, but new features and major fixes will have to wait.
+> **⏸ Development Pause**: I'll be busy for the next month, so active development is on halt. The current version is somewhat useable, but major fixes will have to wait.
 
 > See [TODO.md](./TODO.md) for upcoming tasks and planned improvements.
 
