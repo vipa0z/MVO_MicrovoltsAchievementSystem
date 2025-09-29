@@ -5,11 +5,7 @@
 ## Overview
 The Daily Chest system allows players to claim rewards every 2 hours of active playtime. This system incorporates drop rates to create varied reward experiences and encourages regular gameplay sessions.
 
-## Purpose
-- Rewards consistent short-term gameplay sessions
-- Provides frequent reward opportunities to maintain engagement
-- Uses drop rate mechanics to create reward variety and rarity
-- Encourages players to return regularly for rewards
+
 
 ## Mechanics
 - **Time Requirement**: Players must accumulate 2 hours of playtime to claim a reward
