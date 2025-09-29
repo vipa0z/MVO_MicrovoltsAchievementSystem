@@ -3,7 +3,7 @@
 ## Table of Contents
 
 ### Getting Started
-- [Installation & Setup](#configuration)
+- [Installation & Setup](#configuration.md)
 
 
 ### Feature Documentation
