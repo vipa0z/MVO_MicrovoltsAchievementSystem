@@ -36,13 +36,18 @@ Comprehensive progression tracking and milestone rewards.
 - **Features**: Personal progress tracking and social achievement viewing
 - **Status**: GUI needs rewriting (scaling issues), API fully functional
 
+> Development Notes
+- Achievement script may require tweaking
+- GUI scaling issues exist in achievement system
+- Comprehensive logging and error handling implemented
+
 ## Configuration Management
 
 All systems use the Config API for item management:
+- **Achievements**: Generated via `--generate-achievements` script (requires manual tweaks)
+- **Daily Chest**: generate via `--generate-chest` (currently not implemented)
 - **Event Shop**: `/api/admin/config/shop` (requires `price` field)
 - **Wheel**: `/api/admin/config/wheel`
-- **Daily Chest**: `/api/admin/config/playtime-draw` (requires `dropRate` field)
-- **Achievements**: Generated via `--generate-achievements` script
 
 ## Time-Based Mechanics
 
@@ -52,17 +57,12 @@ The server uses configurable time triggers:
 
 ## Currency System
 
-**Event Currency** is the primary premium currency:
-- Earned through achievements, daily rewards, and special events
+**Event Currency** is the primary  currency for shop:
+- Earned through playing matches
 - Spent in the Event Shop for exclusive items
 - Tracked per player with transaction logging
 
-## Development Notes
 
-- Achievement script may require editing for new achievement types
-- GUI scaling issues exist in achievement system
-- All systems support both API and web interface access
-- Comprehensive logging and error handling implemented
 
 ---
 
