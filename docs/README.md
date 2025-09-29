@@ -5,15 +5,15 @@
 ### Getting Started
 - [Installation & Setup](#installation)
 - [Environment Configuration](#environment-variables)
-- [Database Setup](#populate-database-setup)
+- [Database Setup](#configuration.md)
 - [Admin User Creation](#admin-user-creation)
 
 ### Feature Documentation
-> - **[Features Overview](features-overview.md)** - High-level overview of all systems
+-  **[Features Overview](features-overview.md)** - High-level overview of all systems
 
 - **[Achievement System](achievements.md)** -   progression tracking system
 
-- **[Event Shop](event-shop.md)** - Premium store using Event Currency
+- **[Event Shop](event-shop.md)** - store using Event Currency
 - **[Referral Wheel](referral-wheel.md)** - Time-gated spinning wheel rewards
 - **[Daily Chest](daily-chest.md)** - daily based rewards with drop rates
 
