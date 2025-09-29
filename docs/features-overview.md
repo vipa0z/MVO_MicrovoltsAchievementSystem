@@ -35,11 +35,9 @@ Comprehensive progression tracking and milestone rewards.
 - **Purpose**: Long-term goals and diverse activity rewards
 - **Features**: Personal progress tracking and social achievement viewing
 - **Status**: GUI needs rewriting (scaling issues), API fully functional
-
-> Development Notes
 - Achievement script may require tweaking
-- GUI scaling issues exist in achievement system
-- Comprehensive logging and error handling implemented
+- GUI scaling issue
+
 
 ## Configuration Management
 
@@ -49,18 +47,11 @@ All systems use the Config API for item management:
 - **Event Shop**: `/api/admin/config/shop` (requires `price` field)
 - **Wheel**: `/api/admin/config/wheel`
 
-## Time-Based Mechanics
+## Environment variables
 
 The server uses configurable time triggers:
 - **Wheel Spins**: `WHEEL_DRAW_TRIGGER` (default: 160 hours)
 - **Daily Chest**: `DAILY_PLAYTIME_DRAW_TRIGGER` (default: 2 hours)
-
-## Currency System
-
-**Event Currency** is the primary  currency for shop:
-- Earned through playing matches
-- Spent in the Event Shop for exclusive items
-- Tracked per player with transaction logging
 
 
 
