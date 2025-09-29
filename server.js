@@ -14,13 +14,18 @@ const MemoryLoader = require('./util/MemoryLoader');
 
 // routes
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
 const { router, registerAdminRoutes, registerUserRoutes } = require('./routes/apiRoutes');
+const siteRoutes = require('./routes/siteRoutes');
+
 // Register routes
 app.use('/api', router);
 registerAdminRoutes(router);
 registerUserRoutes(router);
+app.use('/', siteRoutes);
 
 const errorHandler = require('./middlewares/error');
 app.use(errorHandler);
@@ -53,6 +58,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/data', express.static(path.join(__dirname, 'data')));
 
 
 async function startServer() {

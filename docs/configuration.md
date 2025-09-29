@@ -1,4 +1,6 @@
 
+**🏠 [Home](README.md)** | **📋 [Features Overview](features-overview.md)** | **⚙️ Configuration** | **📚 [API Reference](api-reference/)**
+
 ## Script Menu Overview
 
 The script menu handles various in-game reward mechanisms and administrative tasks.
@@ -123,3 +125,15 @@ node server.js --create-admin AdminUser P@ssword123!
 *   **Password:** Must be at least 6 characters long and include at least one non-alphanumeric symbol (e.g., `!`, `@`, `#`, `_`).
 
 This command will create a new user with `Grade` 7, which is the highest administrative level. If a user with the specified username already exists, the script will notify you and exit without making changes.
+
+---
+
+## Navigation
+
+**🏠 [Home](README.md)** | **📋 [Features Overview](features-overview.md)** | **⚙️ Configuration** | **📚 [API Reference](api-reference/)**
+
+### Feature Documentation
+- **🛒 [Event Shop](event-shop.md)** - Premium currency store
+- **🎡 [Referral Wheel](referral-wheel.md)** - Time-gated spinning rewards
+- **📦 [Daily Chest](daily-chest.md)** - Frequent playtime rewards
+- **🏆 [Achievement System](achievements.md)** - Progression tracking

@@ -1,24 +1,39 @@
 const Achievements = require("../services/AchievementService")
 const Player = require("../database/Player")
-exports.getSelfAchievements = async (req , res) => {
- const playerId = req.user.id;
- const playernickname = req.user.nickname;
+exports.getSelfAchievements = async (req, res) => {
+    const playerId = req.user.id;
+    const playernickname = req.user.nickname;
     try {
-        const achievements = new Achievements(playerId,playernickname)
+        console.log('Getting achievements for user:', { playerId, playernickname });
+        const achievements = new Achievements(playerId, playernickname)
         const achievementData = await achievements.getAchievements()
+        const achievementMeta = await achievements.getItemMetadata()
+
+        // Combine achievement metadata with progress data
+        const combinedAchievements = achievementMeta.map(template => {
+            const progress = achievementData.find(a => a.slug === template.achievementSlug);
+            return {
+                ...template,
+                slug: template.achievementSlug,
+                state: progress?.state || 'locked',
+                inProgress: progress?.inProgress || false,
+                overallPercent: progress?.overallPercent || 0
+            };
+        });
+
         res.status(200).json({
             success: true,
-            data: achievementData
+            achievements: combinedAchievements
         })
     } catch (error) {
-       console.error(error)
+        console.error('Error in getSelfAchievements:', error)
         return res.status(500).json({
             success: false,
             error: "internal server error"
-        })       
+        })
     }
 }
-exports.getSocialAchievements = async (req , res) => {
+exports.getSocialAchievements = async (req, res) => {
     const playernickname = req.params.nickname;
     if (!playernickname) {
         return res.status(400).json({
@@ -35,20 +50,20 @@ exports.getSocialAchievements = async (req , res) => {
     }
     try {
         const socialAchievements = await Achievements.getSocialAchievements(playernickname)
-       
+
         res.status(200).json({
             success: true,
             data: socialAchievements
         })
     } catch (error) {
-       console.error(error)
+        console.error(error)
         return res.status(500).json({
             success: false,
             error: "internal server error"
-        })       
+        })
     }
 }
-exports.claimAchievement = async (req , res) => {
+exports.claimAchievement = async (req, res) => {
     const achievementSlug = req.body.achievementSlug;
     const playerId = req.user.id;
     const playernickname = req.user.nickname;
@@ -65,13 +80,12 @@ exports.claimAchievement = async (req , res) => {
         })
     }
     try {
-        console.log("Creating Achievements with:", { playerId, playernickname });
         const achievements = new Achievements(playerId, playernickname)
         const achievementData = await achievements.claimAchievement(achievementSlug)
         if (!achievementData.error) {
             return res.status(200).json({
                 success: achievementData.success,
-                data: {message: achievementData.message, achievement: achievementData.achievement}
+                data: { message: achievementData.message, achievement: achievementData.achievement }
             })
         } else {
             return res.status(400).json({
@@ -80,10 +94,10 @@ exports.claimAchievement = async (req , res) => {
             })
         }
     } catch (error) {
-       console.error(error)
+        console.error(error)
         return res.status(500).json({
             success: false,
             error: "internal server error"
-        })       
+        })
     }
 }

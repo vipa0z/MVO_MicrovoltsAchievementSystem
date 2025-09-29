@@ -34,12 +34,10 @@ class EventShop {
             }
             
             const playerCurrencyAmount = (await db.query('SELECT EventCurrency FROM users WHERE AccountID = ?', [this.playerId]))[0]?.EventCurrency || 0;
-            console.log(playerCurrencyAmount)
-            console.log(item.price)
             if (playerCurrencyAmount < (item.price || 0)) {
                 return { success: false, error: 'Not enough currency' };
             }
-            console.log(item.itemId)
+         
             const result = await GiftBox.sendReward(
                 item,
                 this.playerId,
@@ -48,6 +46,7 @@ class EventShop {
                 'ShopSys');
             
             const updatedCurrency = playerCurrencyAmount - (item.price || 0);
+            // move this to Player file
             await db.query('UPDATE users SET EventCurrency = ? WHERE AccountID = ?', [updatedCurrency, this.playerId]);
 
             return { 

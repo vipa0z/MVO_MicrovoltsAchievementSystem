@@ -20,24 +20,14 @@ async function loadGameData() {
 }
 
 
-// Transform field names to human-friendly format
 function transformFieldNames(item, iconData = null) {
   return {
     itemId: item.ii_id,
     itemName: item.ii_name,
     itemOption: item.ii_name_option,
     itemDuration: item.ii_name_time,
-    
-    
-    // Add icon information if found
-    ...(iconData && {
-      ddsFileName: iconData.ddsFileName,
-      offset: iconData.offset,
-      width: iconData.width,
-      height: iconData.height,
-      filesize: iconData.filesize,
-      common: iconData.common
-    })
+    iconId: item.ii_icon,
+
   };
 }
 

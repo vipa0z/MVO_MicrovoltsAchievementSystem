@@ -1,13 +1,21 @@
 
-// //disabled
-// const express = require('express');
-// const router = express.Router();
-// const auth = require('../middleware/auth');
+const express = require('express');
+const router = express.Router();
+const { authUser } = require('../middlewares/auth');
 
-// const wheelController = require('../controllers/referal_wheel');
-// // router.get('/wheel',auth, wheelController.r);
+// Login page
+router.get('/login', (req, res) => {
+    res.render('login', {
+        title: 'Login'
+    });
+});
 
+// Achievement GUI page
+router.get('/achievements', authUser, (req, res) => {
+    res.render('achievements-gui', {
+        title: 'Game Achievements',
+        user: req.user
+    });
+});
 
-
-
-// module.exports = router;
+module.exports = router;

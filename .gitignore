@@ -1,0 +1,82 @@
+
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs/
+*.log
+log/
+error.log
+wheel.log
+public/wheel.log
+
+# Coverage reports
+coverage/
+.nyc_output/
+controllers/coverage/
+controllers/coverage/*
+
+# Test files
+tests/
+test/
+jest.config.js
+*.test.js
+*.spec.js
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Build and cache files
+.cache/
+dist/
+build/
+.tmp/
+.temp/
+
+# Data files (sensitive or large)
+data/itemInfo.json
+data/itemInfo.transformed.json
+data/itemInfo.transformed
+data/*.rar
+configs/itemsinfo.json
+*/itemsinfo.json
+
+# Development tools
+.trae
+.coverage
+nodemon.json
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Batch files (Windows specific tools)
+*.bat
+
+# Test HTML files
+test-*.html
+public/test-*.html
+
+# Parsing Tools directory
+Parsing Tools/

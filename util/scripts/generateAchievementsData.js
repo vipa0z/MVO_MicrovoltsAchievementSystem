@@ -10,20 +10,20 @@ const specialItems = {
     { itemId: 5336562, itemName: "Coupon Box" },
   ],
   80: [
- // { itemId: itemidhere, itemName: "placeholder name" }],
+    // { itemId: itemidhere, itemName: "placeholder name" }],
     { itemId: 5336562, itemName: "Coupon Box" }],
 
 
   90: [
- // { itemId: itemidhere, itemName: "placeholder name" }],
+    // { itemId: itemidhere, itemName: "placeholder name" }],
     { itemId: 5336562, itemName: "Coupon Box" }],
   100: [
     { itemId: 5336562, itemName: "Coupon Box" },
- // { itemId: itemidhere, itemName: "placeholder name" }],
+    // { itemId: itemidhere, itemName: "placeholder name" }],
   ],
   105: [
     { itemId: 5336562, itemName: "Coupon Box" },
- // { itemId: itemidhere, itemName: "placeholder name" }],
+    // { itemId: itemidhere, itemName: "placeholder name" }],
     { itemId: 5336100, itemName: "Random Coupon BOX(P)" }
   ],
 };
@@ -288,6 +288,7 @@ function run() {
         rewards.push({
           itemId: mpItemIdForKill,
           itemName: `${mpValueForKill} MP`
+
         });
       } else {
         console.warn(`No mpItem defined for ${mpValueForKill} MP (for ${threshold} kills). Check mpItems object.`);

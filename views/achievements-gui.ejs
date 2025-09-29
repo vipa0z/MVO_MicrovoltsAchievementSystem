@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Achievements - MicroVolts</title>
+    <link rel="stylesheet" href="/css/achievements-gui.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- Left Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="nav-item">
+                <span class="nav-icon">👤</span>
+                My Profile
+            </div>
+            <div class="nav-item">
+                <span class="nav-icon">👥</span>
+                Recruitments
+            </div>
+            <div class="nav-item active">
+                <span class="nav-icon">🏆</span>
+                Achievements
+            </div>
+            <div class="nav-item">
+                <span class="nav-icon">👥</span>
+                Players
+            </div>
+            <div class="nav-item">
+                <span class="nav-icon">⚔️</span>
+                Clans
+            </div>
+            <div class="nav-item">
+                <span class="nav-icon">💬</span>
+                Forum
+            </div>
+            <div class="nav-item">
+                <span class="nav-icon">➕</span>
+                Create Clan
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+            <!-- Header Section with Background and Characters -->
+            <header class="achievement-header">
+                <div class="header-content">
+                    <h1 class="title">Game Achievements</h1>
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <span class="stat-icon">🔒</span>
+                            <span id="unlocked-count">0</span>/<span id="total-count">0</span> Unlocked
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">✅</span>
+                            <span id="collected-count">0</span>/<span id="total-count-2">0</span> Collected
+                        </div>
+                    </div>
+                </div>
+                <div class="character-artwork">
+                    <!-- Anime characters will be positioned here -->
+                </div>
+            </header>
+            <!-- Achievement Grid -->
+            <section class="achievements-grid-container">
+                <div id="achievements-grid" class="achievements-grid">
+                    <!-- Achievement boxes will be dynamically generated here -->
+                </div>
+
+        </main>
+    </div>
+
+    <!-- Achievement Detail Modal -->
+    <div id="achievement-modal" class="modal hidden">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+
+            <!-- Header with icon and title -->
+            <div class="modal-header">
+                <div class="achievement-icon-large">
+                    <!-- Icon will be populated here -->
+                </div>
+                <h2 id="modal-title">Achievement Name</h2>
+            </div>
+
+            <!-- Separator line -->
+            <div class="modal-separator"></div>
+
+            <!-- Requirements Section -->
+            <div class="modal-section">
+                <h3 class="section-title">Requirements</h3>
+                <p id="modal-description" class="requirement-text">Achievement description</p>
+                <ul id="modal-requirements" class="requirements-list">
+                    <!-- Requirements will be populated here -->
+                </ul>
+            </div>
+
+            <!-- Rewards Section -->
+            <div class="modal-section">
+                <h3 class="section-title">Rewards</h3>
+                <div id="modal-rewards" class="rewards-container">
+                    <!-- Reward icons will be populated here -->
+                </div>
+            </div>
+
+            <!-- Bottom section with collect button and progress -->
+            <div class="modal-bottom">
+                <button id="claim-btn" class="collect-btn" onclick="claimAchievement()">
+                    Collect
+                </button>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="modal-progress" class="progress-fill"></div>
+                    </div>
+                    <span id="modal-progress-text" class="progress-text">0/100</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/js/achievements-gui.js"></script>
+</body>
+
+</html>

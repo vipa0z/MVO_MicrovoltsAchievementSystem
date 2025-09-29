@@ -1,13 +1,19 @@
 const jwt = require('jsonwebtoken');
 
 function authUser(req, res, next) {
-  const authHeader = req.headers['authorization'];
-
-  if (!authHeader || !authHeader.startsWith('Bearer ')) {
-    return res.status(401).json({ message: 'Missing or invalid token' });
+  // Try to get token from cookie first, then fallback to Authorization header
+  let token = req.cookies?.token;
+  
+  if (!token) {
+    const authHeader = req.headers['authorization'];
+    if (authHeader && authHeader.startsWith('Bearer ')) {
+      token = authHeader.split(' ')[1];
+    }
   }
 
-  const token = authHeader.split(' ')[1];
+  if (!token) {
+    return res.status(401).json({ message: 'Missing or invalid token' });
+  }
   try {
     
     const decoded = jwt.verify(token, process.env.USER_JWT_SECRET);
@@ -28,12 +34,19 @@ function authUser(req, res, next) {
 
 }
 function authAdmin(req, res, next) {
-    const authHeader = req.headers['authorization'];
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-        return res.status(401).json({ message: 'Missing or invalid token' });
+    // Try to get token from cookie first, then fallback to Authorization header
+    let token = req.cookies?.token;
+    
+    if (!token) {
+        const authHeader = req.headers['authorization'];
+        if (authHeader && authHeader.startsWith('Bearer ')) {
+            token = authHeader.split(' ')[1];
+        }
     }
 
-    const token = authHeader.split(' ')[1];
+    if (!token) {
+        return res.status(401).json({ message: 'Missing or invalid token' });
+    }
     try {
         const decoded = jwt.verify(token, process.env.ADMIN_JWT_SECRET);
 

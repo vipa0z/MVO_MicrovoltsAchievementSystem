@@ -53,7 +53,7 @@
         {
           "itemId": 4305006,
           "itemName": "1,000 Battery",
-          "quantity": 5
+          "quantity": 10
         },
         {
           "itemId": 4308108,
@@ -76,7 +76,7 @@
         {
           "itemId": 4305006,
           "itemName": "1,000 Battery",
-          "quantity": 6
+          "quantity": 10
         },
         {
           "itemId": 4308108,
@@ -271,10 +271,6 @@
         {
           "itemId": 5336562,
           "itemName": "Coupon Box"
-        },
-        {
-          "itemId": 4382950,
-          "itemName": "Platinum Wreath Crown"
         }
       ]
     },
@@ -310,10 +306,6 @@
         {
           "itemId": 5336562,
           "itemName": "Coupon Box"
-        },
-        {
-          "itemId": 4382950,
-          "itemName": "Ultimate Champion Crown"
         },
         {
           "itemId": 5336100,

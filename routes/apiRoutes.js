@@ -23,6 +23,23 @@ const registerAdminRoutes = () => {
 const registerUserRoutes = () => {
     router.post('/register', authController.register)
     router.post('/login', authController.login)
+    router.post('/logout', authController.logout)
+    
+    // Debug endpoint
+    router.get('/debug/achievements', authUser, async (req, res) => {
+        try {
+            const MemoryLoader = require('../util/MemoryLoader');
+            const raw = MemoryLoader.getAchievementsData();
+            res.json({
+                rawType: Array.isArray(raw) ? 'array' : 'object',
+                hasAchievements: raw && raw.achievements ? true : false,
+                achievementsCount: Array.isArray(raw) ? raw.length : (raw.achievements ? raw.achievements.length : 0),
+                sample: Array.isArray(raw) ? raw[0] : (raw.achievements ? raw.achievements[0] : null)
+            });
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    });
 
     // wheel
     router.get('/wheel/items', authUser, wheelController.getWheelItems);

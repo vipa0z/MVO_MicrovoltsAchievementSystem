@@ -1,3 +1,31 @@
+# Microvolts Reward Server Documentation
+
+## Table of Contents
+
+### Getting Started
+- [Installation & Setup](#installation)
+- [Environment Configuration](#environment-variables)
+- [Database Setup](#populate-database-setup)
+- [Admin User Creation](#admin-user-creation)
+
+### Feature Documentation
+> - **[Features Overview](features-overview.md)** - High-level overview of all systems
+
+- **[Achievement System](achievements.md)** -   progression tracking system
+
+- **[Event Shop](event-shop.md)** - Premium store using Event Currency
+- **[Referral Wheel](referral-wheel.md)** - Time-gated spinning wheel rewards
+- **[Daily Chest](daily-chest.md)** - daily based rewards with drop rates
+
+
+### Detailed Documentation
+- **[Configuration Guide](configuration.md)** - Detailed server configuration
+- **[Config Loading](config-loading.md)** - Configuration loading mechanisms
+- **[Memory Caching](memory-caching.md)** - Caching system details
+- **[API Reference](api-reference/)** - Complete API documentation
+
+---
+
 ## Installation
 This section covers the initial setup and configuration of the Server.
 Data Files
@@ -51,7 +79,8 @@ The server is configured using a .env file. Create this file by copying the prov
 after editing, rename `.env.example` to `.env`
 
 ---
-Command-Line Option Details
+
+## Command-Line Option Details
 To run the server or execute specific scripts, use the node server.js command followed by the desired options.
 ```
 node server.js [--populate] [--create-admin <username> <password>] [--help]
@@ -61,14 +90,14 @@ Options
     --populate:(REQUIRED) Run DB migrations/updates before starting.
     --cache-reset: (Optional) Updates the cached itemsinfo file after changing ItemInfo.json.
     --create-admin (Optional) <username> <password>: Create initial admin user.
-    --generate-achievements: (Optional) Runs the generateAchievementData.js script.
+    --generate-achievements: (Optional) Runs the generateAchievementData.js script. See [Achievement System](achievements.md) for details.
     --generate-chest: (Optional) : Runs the generateDailyChestItems.js script.
     --help: Show this help message.
 ```
 ---
 
 This section provides more detailed information on specific command-line options.
---populate (Database Setup)
+### --populate (Database Setup)
 
 The --populate command is a one-time setup step that prepares your database. It should be run before the first server startup or after significant database schema changes.
 
@@ -78,19 +107,21 @@ node server.js --populate
 
 This command executes the dbUpdater.js script, which performs the following actions:
 
-    Ensures Reward Columns Exist: It checks the users table for the following columns and adds them if they are missing. This is crucial for the server to function correctly.
+1. Ensure Reward Columns Exist:
+    It checks the users table for the following columns and adds them if they are missing. This is crucial for the server to function correctly.
+        
         WheelSpinsClaimed (INT, DEFAULT 0)
         TwoHoursCounter (INT, DEFAULT 0)
         dailySpinsClaimed (INT, DEFAULT 0)
         EventCurrency (INT, DEFAULT 0)
 
-    Ensures Player Achievements Table Exists: It creates the player_achievements table if it does not already exist. This table tracks which achievements each player has claimed.
+2. Ensures Player Achievements Table Exists: It creates the player_achievements table if it does not already exist. This table tracks which achievements each player has claimed. Learn more about the [Achievement System](achievements.md).
 
 After running successfully, the script will exit. You can then proceed with the rest of the guide.
 
 ---
 
-### admin user creation
+### Admin User Creation
 
 The `--create-admin` command allows you to create an initial administrator account.
 
@@ -109,5 +140,23 @@ Requirements:
     Password: Must be at least 6 characters long and include at least one non-alphanumeric symbol (e.g., !, @, #, _).
 
 ---
-### Configuring wheel and shop items:
-you can add wheel rewards or shop items via the API or by manually modifying the `/data/config` files. more on this can be found in [config API](api-reference/admin.md)
+
+### Configuring Wheel and Shop Items
+You can add wheel rewards or shop items via the API or by manually modifying the `/data/config` files. More details can be found in the [Config API Reference](api-reference/admin.md).
+
+---
+
+## Next Steps
+
+After completing the installation:
+
+1. **Explore Features**: Start with the [Features Overview](features-overview.md) to understand all available systems
+2. **Configure Items**: Set up your [Event Shop](event-shop.md), [Referral Wheel](referral-wheel.md), and [Daily Chest](daily-chest.md) items
+3. **Set Up Achievements**: Configure the [Achievement System](achievements.md) for your players
+4. **API Integration**: Review the [API Reference](api-reference/) for integration details
+
+---
+
+## Quick Navigation
+
+**🏠 [Home](README.md)** | **[Features Overview](features-overview.md)** | **⚙️ [Configuration](configuration.md)** | **[API Reference](api-reference/)**

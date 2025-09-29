@@ -1,7 +1,7 @@
 const db   = require('../database/connection')
 const axios = require("axios")
 const { getEmuToken } = require('../util/getEmuJwt');
-
+const {logger} = require('../util/logger')
 class GiftBox {
     constructor(nickname, playerId) {
 

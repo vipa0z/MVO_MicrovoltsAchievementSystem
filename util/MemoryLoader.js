@@ -8,7 +8,8 @@ class MemoryLoader {
         wheel_items_data: [],
         shop_items_data: [],
         hours_reward_data: [],
-        achievements_data: []
+        achievements_data: [],
+        iconsinfo_data: []
     }
     static allItems = [];
     
@@ -96,10 +97,33 @@ class MemoryLoader {
     }
     static getAchievementsData() {
         if (!this.items['achievements_data']) {
-            logger.warn(`[!] Attempted to access non-existent category: ${category}`);
+            logger.warn(`[!] Attempted to access non-existent category: achievements_data`);
             return [];
         }
         return this.items['achievements_data'];
+    }
+
+    /**
+     * Load iconsinfo.json data into memory for icon lookups
+     * @returns {Array} Array of icon data objects
+     */
+    static async loadIconsInfo() {
+        try {
+            const iconsPath = path.join(__dirname, '..', 'data', 'iconsinfo.json');
+            const data = await fs.readFile(iconsPath, 'utf8');
+            const iconsData = JSON.parse(data);
+
+            if (!Array.isArray(iconsData)) {
+                throw new Error('Invalid format in iconsinfo.json. Expected array');
+            }
+
+            this.items['iconsinfo_data'] = iconsData;
+            logger.success(`[MemoryLoader] Loaded ${iconsData.length} icons into memory`);
+            return this.items['iconsinfo_data'];
+        } catch (error) {
+            logger.error(`Error loading iconsinfo.json into memory: ${error}`);
+            throw error;
+        }
     }
     
  
