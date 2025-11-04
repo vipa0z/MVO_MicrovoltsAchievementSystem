@@ -1,6 +1,5 @@
 ## Overview
- The Achievement System, along with additional reward features.
-
+A recreation of the Previous Microvolts reward systems, bringing back the achievement and reward mechanics from Microvolts Unplugged and ToyHeroes Offline. 
 
 ```
     |  \/  | \ \ / /  / _ \  
