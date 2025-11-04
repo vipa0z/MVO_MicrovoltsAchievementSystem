@@ -1,7 +1,7 @@
+## Overview
+ The Achievement System, along with additional reward features.
 
-## MV Overvolts Overview
 
-The MVO  Server handles various in-game reward mechanisms.
 ```
     |  \/  | \ \ / /  / _ \  
     | |\/| |  \ V /  | (_) | 
@@ -9,42 +9,34 @@ The MVO  Server handles various in-game reward mechanisms.
     _|"""""|_| """"|_|"""""| 
     `-0-0-'  `-0-0-'  `-0-0-` 
     
-Microvolts OverVolt v 0.5
+MVO v0.5
 ──────────────────────────────────────────────────────────────
 ```
 
 
-## Features
-- **Referral Wheel** 
-- **Achievement system** 
-- **Event Shop** 
-- **daily playtime chest**
-- **GUI** (in Progress)
-
-## Development Status
-The good news is that most of the features I wanted are in here!
-
-The catch is that I haven't had a chance to write tests for everything yet, so some parts are definitely more stable than others. You might run into some flaky behavior. If you find a bug, please let me know by opening an issue! 
+The following features were fully implemented though testing was not comprehensive:
+- Referral Wheel
+- Event Shop
+- Achievement system
+- daily playtime chest
 
 ### GUI Status
-The web interface is technically there, but the CSS is having an identity crisis. The scaling is completely off and it's not responsive in the slightest. It's functional enough for testing, but you might need to squint a bit.
+This project was intended as a backend implementation, and due to limitations with EJS templating, the web interface is technically functional but visually problematic. The CSS scaling is completely off and it's not responsive whatsoever. It works well enough for testing backend functionality, but don't expect it to look good on any screen size.
 
 ![Current GUI State](docs/achievements-buggy.png)
 
-*The achievement system works great via API, but the GUI needs some TLC*
-> **⏸ Development Pause**: I'll be busy for the next month, so active development is on halt. The current version is somewhat useable, but major fixes will have to wait.
+## Achievement system
+The original setup rewarded MP, Battery, coins..., and some special items unlocked after reaching level 90, those rewards relied heavily on farming, which made progression feel grindy. try to keep a good balance so players do not get items too early or too late.
 
-> See [TODO.md](./TODO.md) for upcoming tasks and planned improvements.
+You will need to manually edit the generateAchievements.js script located at `util/scripts/generateAchievements.js`. The script is simple enough to modify, so customizing achievements or reward values should not be difficult.
 
-
-## Usability
-- **API**:  can be tested via tools like Postman
-- Sends rewards via API requests to the [MicrovoltsEmulator](https://github.com/SoWeBegin/MicrovoltsEmulator)
-
-
+To generate achievement data, run the server with:
+```
+node server.js --generate-achievements
+```
+Integration with the [MicrovoltsEmulator](https://github.com/SoWeBegin/MicrovoltsEmulator) is already in place, so achievements can directly trigger reward delivery to players. You can test the server endpoints with Postman to verify that achievements and reward calls work correctly.
 
 ## Documentation
-
 For a complete guide on setup, configuration, and API usage,  see the **[Full User Manual](./docs/README.md)**.
 
 
