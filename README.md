@@ -36,7 +36,7 @@ node server.js --generate-achievements
 Integration with the [MicrovoltsEmulator](https://github.com/SoWeBegin/MicrovoltsEmulator) is already in place, so achievements can directly trigger reward delivery to players. You can test the server endpoints with Postman to verify that achievements and reward calls work correctly.
 
 ## Documentation
-For a complete guide on setup, configuration, and API usage,  see the **[Full User Manual](./docs/README.md)**.
+For a complete guide on setup, configuration, and API usage, Read the **[Docs](./docs/README.md)**.
 
 
   
