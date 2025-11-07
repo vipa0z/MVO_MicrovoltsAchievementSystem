@@ -2,8 +2,6 @@
 
 This section provides detailed information about the API endpoints available on the MVO Rewards Server.
 
-## Authentication
-
 Most endpoints require a JSON Web Token (JWT) for authentication. The token must be included in the `Authorization` header of your request.
 
 **Format:** `Authorization: Bearer <your_jwt_token>`
