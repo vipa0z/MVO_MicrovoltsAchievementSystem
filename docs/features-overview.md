@@ -4,16 +4,10 @@
 
 This document provides a high-level overview of all reward systems and features available in the Microvolts Reward Server.
 
-## Quick Links to Features
-- 🛒 **[Event Shop](event-shop.md)** - Event currency store
-- 🎡 **[Referral Wheel](referral-wheel.md)** - Time-gated spinning rewards  
-- 📦 **[Daily Chest](daily-chest.md)** - Frequent playtime rewards
-- 🏆 **[Achievement System](achievements.md)** - Progression tracking
-
 ## Core Reward Systems
 
 ### 🛒 [Event Shop](event-shop.md)
-Premium store for exclusive items using Event Currency.
+Event store for exclusive items using Event Currency.
 - **Purpose**: Currency sink for event rewards
 - **Requirement**: Items must have price field configured via Config API
 - **Currency Source**: Earned through various activities and achievements
@@ -46,14 +40,6 @@ All systems use the Config API for item management:
 - **Daily Chest**: generate via `--generate-chest` (currently not implemented)
 - **Event Shop**: `/api/admin/config/shop` (requires `price` field)
 - **Wheel**: `/api/admin/config/wheel`
-
-## Environment variables
-
-The server uses configurable time triggers:
-- **Wheel Spins**: `WHEEL_DRAW_TRIGGER` (default: 160 hours)
-- **Daily Chest**: `DAILY_PLAYTIME_DRAW_TRIGGER` (default: 2 hours)
-
-
 
 ---
 
