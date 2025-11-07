@@ -4,17 +4,22 @@
 #### Environment Variables
 
 The server is configured using a .env file. Create this file by copying the provided .env.example and filling in the values.
-    
-    <SNIP>
-    DB_X:  variables to handle database connection
-    USER_JWT_SECRET: A secret key for signing JSON Web Tokens (JWTs) for regular users.
-    ADMIN_JWT_SECRET: A secret key for signing JWTs for admin/staff users.
-    EMU_JWT_SECRET: The same JWT secret used by the Microvolts Emulator's web server.
-    EMU_API_URL: The base URL for the Microvolts Emulator API (e.g., http://localhost:8080/api).
-    DAILY_PLAYTIME_DRAW_TRIGGER: The number of hours a player must be playing to be eligible for a daily playtime reward. Default is 2 hours.
-    WHEEL_DRAW_TRIGGER: The number of hours a player must complete to earn one spin on the wheel. Default is 160 hours.
 
-after editing, rename `.env.example` to `.env`
+    ### Environment Variables
+
+The server is configured using a `.env` file. Create this file by copying the provided `.env.example` and filling in the values.
+
+*   `PORT`: The port the server will run on (e.g., `3000`).
+*   `DB_HOST`: The hostname or IP address of your MySQL database.
+*   `DB_USER`: The username for your MySQL database.
+*   `DB_PASSWORD`: The password for your MySQL database.
+*   `DB_NAME`: The name of your MySQL database.
+*   `USER_JWT_SECRET`: A secret key for signing JSON Web Tokens (JWTs) for regular users.
+*   `ADMIN_JWT_SECRET`: A secret key for signing JWTs for admin/staff users.
+*   `EMU_JWT_SECRET`: The JWT secret used by the Microvolts Emulator for API communication.
+*   `EMU_API_URL`: The base URL for the Microvolts Emulator API (e.g., `http://localhost:8080/api`).
+*   `DAILY_PLAYTIME_DRAW_TRIGGER`: The number of hours a player must be playing to be eligible for a daily playtime reward. Default is 2 hours.
+*   `WHEEL_DRAW_TRIGGER`: The number of hours a player must complete to earn one spin on the wheel. Default is 160 hours.
 
 ---
 
@@ -140,21 +145,6 @@ The JSON files are provided in a `.rar` archive within the `data/` folder. To us
 unrar x data/archive.rar data/
 ```
 
-### Environment Variables
-
-The server is configured using a `.env` file. Create this file by copying the provided `.env.example` and filling in the values.
-
-*   `PORT`: The port the server will run on (e.g., `3000`).
-*   `DB_HOST`: The hostname or IP address of your MySQL database.
-*   `DB_USER`: The username for your MySQL database.
-*   `DB_PASSWORD`: The password for your MySQL database.
-*   `DB_NAME`: The name of your MySQL database.
-*   `USER_JWT_SECRET`: A secret key for signing JSON Web Tokens (JWTs) for regular users.
-*   `ADMIN_JWT_SECRET`: A secret key for signing JWTs for admin/staff users.
-*   `EMU_JWT_SECRET`: The JWT secret used by the Microvolts Emulator for API communication.
-*   `EMU_API_URL`: The base URL for the Microvolts Emulator API (e.g., `http://localhost:8080/api`).
-*   `DAILY_PLAYTIME_DRAW_TRIGGER`: The number of hours a player must be playing to be eligible for a daily playtime reward. Default is 2 hours.
-*   `WHEEL_DRAW_TRIGGER`: The number of hours a player must complete to earn one spin on the wheel. Default is 160 hours.
 
 ---
 
