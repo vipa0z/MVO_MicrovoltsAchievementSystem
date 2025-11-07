@@ -5,7 +5,7 @@
 This document provides a high-level overview of all reward systems and features available in the Microvolts Reward Server.
 
 ## Quick Links to Features
-- 🛒 **[Event Shop](event-shop.md)** - Premium currency store
+- 🛒 **[Event Shop](event-shop.md)** - Event currency store
 - 🎡 **[Referral Wheel](referral-wheel.md)** - Time-gated spinning rewards  
 - 📦 **[Daily Chest](daily-chest.md)** - Frequent playtime rewards
 - 🏆 **[Achievement System](achievements.md)** - Progression tracking
