@@ -1,6 +1,6 @@
 const db = require("../database/connection")
 const MemoryLoader = require("../util/MemoryLoader")
-const Player = require("../database/Player")
+const Player = require("../database/player")
 const GiftBox = require("./GiftBoxService")
 
 class Achievements {

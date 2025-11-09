@@ -1,6 +1,6 @@
 const GiftBox = require('./GiftBoxService');
 const db = require('../database/connection');
-const Player = require('../database/Player');
+const Player = require('../database/player');
 const MemoryLoader = require('../util/MemoryLoader');
 const { logger } = require('../util/logger');
 

@@ -1,5 +1,5 @@
 const Achievements = require("../services/AchievementService")
-const Player = require("../database/Player")
+const Player = require("../database/player")
 exports.getSelfAchievements = async (req, res) => {
     const playerId = req.user.id;
     const playernickname = req.user.nickname;

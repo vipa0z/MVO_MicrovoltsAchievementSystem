@@ -1,4 +1,4 @@
-const Player = require("../database/Player");
+const Player = require("../database/player");
 const MemmoryLoader = require("../util/MemoryLoader");
 const GiftBox = require("./GiftBoxService");
 const {logger} = require('../util/logger');

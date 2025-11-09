@@ -1,81 +1,85 @@
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv").config();
-const crypto = require('crypto');
-const Player = require('../database/Player');
-
-// Simple validation: allow only letters and digits for Username (no underscores or specials)
-// If you prefer a library, consider `validator` (e.g., validator.isAlphanumeric)
-const USERNAME_REGEX = /^[A-Za-z0-9]+$/;
-
+const crypto = require("crypto");
+const Player = require("../database/player");
+const validator = require("validator");
 
 // ─────────────── Register ───────────────
 exports.register = async (req, res) => {
-    const username = req.body.username
-    const password = req.body.password
-    const nickname = (req.body.nickname ?? req.body.nickname)?.trim();
-    if (!username || !password || !nickname) {
-        return res.status(400).json({ message: 'Missing required fields' });
+  const username = req.body.username;
+  const password = req.body.password;
+  const nickname = (req.body.nickname ?? req.body.nickname)?.trim();
+  if (!username || !password || !nickname) {
+    return res.status(400).json({ message: "Missing required fields" });
+  }
+  if (!validator.isAlphanumeric(username)) {
+    return res
+      .status(400)
+      .json({
+        message: "Invalid username: letters and digits only (A-Z, a-z, 0-9)",
+      });
+  }
+  if (!validator.isAlphanumeric(nickname)) {
+    return res
+      .status(400)
+      .json({
+        message: "Invalid nickname: letters and digits only (A-Z, a-z, 0-9)",
+      });
+  }
+
+  try {
+    const unAvail = await Player.checkPlayerAvailability(username);
+    if (unAvail) {
+      console.log(unAvail);
+      return res.status(400).json({
+        success: false,
+        message: "Username Taken",
+      });
     }
-    // Username must be only letters and digits
-    if (!USERNAME_REGEX.test(username)) {
-        return res.status(400).json({ message: 'Invalid username: letters and digits only (A-Z, a-z, 0-9)' });
+
+    if (await Player.checkPlayerAvailability(nickname)) {
+      return res.status(400).json({
+        success: false,
+        message: "nickname Taken",
+      });
     }
-    if (!USERNAME_REGEX.test(nickname)) {
-        return res.status(400).json({ message: 'Invalid nickname: letters and digits only (A-Z, a-z, 0-9)' });
-    }
+    const hashedPassword = crypto
+      .createHash("sha256")
+      .update(password)
+      .digest("hex");
 
+    const newUser = await Player.createUser(username, hashedPassword, nickname);
 
-    try {
-        const unAvail = (await Player.checkPlayerAvailability(username))
-        if (unAvail) {
-            console.log(unAvail)
-            return res.status(400).json({
-                success: false,
-                message: 'Username Taken'
-
-            })
-
-        }
-
-        if (await Player.checkPlayerAvailability(nickname)) {
-            return res.status(400).json({
-                success: false,
-                message: 'nickname Taken'
-
-            })
-        }
-        const hashedPassword = crypto.createHash('sha256').update(password).digest('hex');
-
-        const newUser = await Player.createUser(username, hashedPassword, nickname);
-
-        return res.status(201).json({
-            success: true,
-            message: 'User registered successfully',
-            data: {
-                message: 'User registered successfully',
-            }
-        });
-
-    } catch (err) {
-        console.error('Register error:', err);
-        return res.status(500).json({ message: 'Internal server error' });
-    }
+    return res.status(201).json({
+      success: true,
+      message: "User registered successfully",
+      data: {
+        message: "User registered successfully",
+      },
+    });
+  } catch (err) {
+    console.error("Register error:", err);
+    return res.status(500).json({ message: "Internal server error" });
+  }
 };
 exports.registerStaffMember = async (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+  const nickname = (req.body.nickname ?? req.body.nickname)?.trim();
+  const newStaffMemberGrade = req.body.grade;
 
-    const username = req.body.username
-    const password = req.body.password
-    const nickname = (req.body.nickname ?? req.body.nickname)?.trim();
-    const newStaffMemberGrade = req.body.grade
-
-    if (!username || !password || !nickname || !newStaffMemberGrade) {
-        return res.status(400).json({ message: 'Missing required fields' });
-    }
-    // Username must be only letters and digits
-    if (!USERNAME_REGEX.test(username)) {
-        return res.status(400).json({ message: 'Invalid username: letters and digits only (A-Z, a-z, 0-9)' });
-    }
-    /*  grade assignment
+  if (!username || !password || !nickname || !newStaffMemberGrade) {
+    return res.status(400).json({ message: "Missing required fields" });
+  }
+  // Username must be only letters and digits
+  if (!USERNAME_REGEX.test(username)) {
+    return res
+      .status(400)
+      .json({
+        message: "Invalid username: letters and digits only (A-Z, a-z, 0-9)",
+      });
+  }
+  /*  grade assignment
   ------------------------------
   Grade 2 is Event Supporter,
   Grade 3 is Moderator,
@@ -84,126 +88,135 @@ exports.registerStaffMember = async (req, res) => {
   [+] grade 4 and above can add staff members>
   ---------------------------------
   */
-    const allowedGrades = [2, 3, 4, 7]; // valid grades
-    if (isNaN(newStaffMemberGrade) || !allowedGrades.includes(newStaffMemberGrade)) {
-        return res.status(400).json({ message: 'Invalid grade: must be a number' });
+  const allowedGrades = [2, 3, 4, 7]; // valid grades
+  if (
+    isNaN(newStaffMemberGrade) ||
+    !allowedGrades.includes(newStaffMemberGrade)
+  ) {
+    return res.status(400).json({ message: "Invalid grade: must be a number" });
+  }
+  // check access lvl for req (only GMs and above (grade 4+) can add staff members)
+  // tmp:
+
+  if (req.user.grade < 4) {
+    return res
+      .status(403)
+      .json({ message: "Only grade 4 and above can add staff members" });
+  }
+
+
+  try {
+    if (await Player.checkPlayerAvailability(username)) {
+      return res.status(400).json({ message: "Username already Taken" });
     }
-    // check access lvl for requester (only GMs and above (grade 4+) can add staff members)
-    // tmp:
 
-    if (req.user.grade < 4) {
-        return res.status(403).json({ message: 'Only grade 4 and above can add staff members' });
+    if (await Player.checkPlayerAvailability(nickname)) {
+      return res.status(400).json({ message: "nickname Taken" });
     }
-    // if (req.user.grade < 4 ) {
-    //     return res.status(403).json({ message: 'Only grade 4 and above can add staff members' });
-    // }
+    const hashedPassword = crypto
+      .createHash("sha256")
+      .update(password)
+      .digest("hex");
 
+    await Player.createUser(
+      username,
+      hashedPassword,
+      nickname,
+      newStaffMemberGrade
+    );
 
-    try {
-        if (await Player.checkPlayerAvailability(username)) {
-            return res.status(400).json({ message: 'Username already Taken' });
-        }
-
-        if (await Player.checkPlayerAvailability(nickname)) {
-            return res.status(400).json({ message: 'nickname Taken' });
-        }
-        const hashedPassword = crypto.createHash('sha256').update(password).digest('hex');
-
-        await Player.createUser(username, hashedPassword, nickname, newStaffMemberGrade);
-
-        return res.status(201).json({
-            success: true,
-            message: 'privileged user registered successfully',
-
-        });
-
-
-    } catch (err) {
-        console.error('Register error:', err);
-        return res.status(500).json({ message: 'Internal server error' });
-    }
+    return res.status(201).json({
+      success: true,
+      message: "privileged user registered successfully",
+    });
+  } catch (err) {
+    console.error("Register error:", err);
+    return res.status(500).json({ message: "Internal server error" });
+  }
 };
 
 // ─────────────── Login ───────────────
 exports.login = async (req, res) => {
-    console.log(req.body)
-    const username = req.body.username
-    const password = req.body.password
-    if (!username || !password) {
-        return res.status(400).json({ message: 'Missing required fields' });
+  console.log(req.body);
+  const username = req.body.username;
+  const password = req.body.password;
+  if (!username || !password) {
+    return res.status(400).json({ message: "Missing required fields" });
+  }
+
+  try {
+    const user = await Player.getPlayerDetails(username);
+
+    if (!user) {
+      return res.status(401).json({ message: "Invalid credentials" });
     }
-
-    try {
-        const user = await Player.getPlayerDetails(username);
-
-        if (!user) {
-            return res.status(401).json({ message: 'Invalid credentials' });
-        }
-        const hashedPassword = user.password;
-        if (verifyPassword(password, hashedPassword)) {
-        } else {
-            return res.status(401).json({ message: 'Invalid credentials' });
-        }
-        const staffGrades = [2, 3, 4, 7];
-        const isStaff = staffGrades.includes(Number(user.grade));
-        const jwtSecret = isStaff ? process.env.ADMIN_JWT_SECRET : process.env.USER_JWT_SECRET;
-
-        const payload = {
-            id: user.accountId,
-            username: user.username,
-            nickname: user.nickname,
-            grade: user.grade,
-            level: user.level,
-        };
-        console.log('JWT payload:', payload);
-
-        const token = jwt.sign(payload, jwtSecret, { expiresIn: '7d' });
-
-        // set cookie
-        const cookieOptions = {
-            httpOnly: true,
-            secure:true,
-            sameSite: 'strict',
-            maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-            path: '/'
-        };
-        // send cookies for site
-        res.cookie('token', token, cookieOptions);
-
-        return res.status(200).json({
-            success: true,
-            data: {
-                message: "Login successful",
-                token, // send token for api clients
-
-            }
-        });
-    } catch (err) {
-        console.error('Login error:', err);
-        return res.status(500).json({ message: 'Internal server error' });
+    const hashedPassword = user.password;
+    if (verifyPassword(password, hashedPassword)) {
+    } else {
+      return res.status(401).json({ message: "Invalid credentials" });
     }
+    const staffGrades = [2, 3, 4, 7];
+    const isStaff = staffGrades.includes(Number(user.grade));
+    const jwtSecret = isStaff
+      ? process.env.ADMIN_JWT_SECRET
+      : process.env.USER_JWT_SECRET;
+
+    const payload = {
+      id: user.accountId,
+      username: user.username,
+      nickname: user.nickname,
+      grade: user.grade,
+      level: user.level,
+    };
+    console.log("JWT payload:", payload);
+
+    const token = jwt.sign(payload, jwtSecret, { expiresIn: "7d" });
+
+    // set cookie
+    const cookieOptions = {
+      httpOnly: true,
+      secure: true,
+      sameSite: "strict",
+      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+      path: "/",
+    };
+    // send cookies for site
+    res.cookie("token", token, cookieOptions);
+
+    return res.status(200).json({
+      success: true,
+      data: {
+        message: "Login successful",
+        token, // send token for api clients
+        type: "Bearer",
+      },
+    });
+  } catch (err) {
+    console.error("Login error:", err);
+    return res.status(500).json({ message: "Internal server error" });
+  }
 };
 
 // ─────────────── Logout ───────────────
 exports.logout = async (req, res) => {
-    // Clear the cookie
-    res.clearCookie('token', {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'strict',
-        path: '/'
-    });
+  // Clear the cookie
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+    path: "/",
+  });
 
-    return res.status(200).json({
-        success: true,
-        message: 'Logged out successfully'
-    });
+  return res.status(200).json({
+    success: true,
+    message: "Logged out successfully",
+  });
 };
 
 function verifyPassword(inputPassword, storedHash) {
-    const inputHash = crypto.createHash('sha256').update(inputPassword).digest('hex');
-    return inputHash === storedHash;
+  const inputHash = crypto
+    .createHash("sha256")
+    .update(inputPassword)
+    .digest("hex");
+  return inputHash === storedHash;
 }
-
-
-
