@@ -93,6 +93,6 @@ Players earn Event Currency through playing fifteen(15) minutes or longer matche
 - **📦 [Daily Chest](daily-chest.md)** - Frequent playtime rewards
 - **🏆 [Achievement System](achievements.md)** - Progression tracking
 
-### Technical Documentation
+### Config and API Documentation
 - **⚙️ [Configuration](configuration.md)** - Server configuration details
 - **📚 [API Reference](api-reference/)** - Complete API documentation
