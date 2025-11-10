@@ -34,9 +34,19 @@ You will need to manually edit the `generateAchievements.js` script located at `
 
 Integration with the [MicrovoltsEmulator](https://github.com/SoWeBegin/MicrovoltsEmulator) is already in place, so achievements can directly trigger reward delivery to players. You can test the server endpoints with Postman to verify that achievements and reward calls work correctly.
 
-### Documentation
-For a complete guide on installation, setup, configuration, and API usage, check out the Docs
-You’ll need to follow the installation steps there before you can run or test the project.
+
+### Installation & Configuration
+
+For a complete guide on installation, setup, configuration, and API usage, check out [Installation & Configuration](docs/configuration.md)
+
+
+### Note
+Parts of the documentation were originally generated and may contain duplicated or inconsistently formatted sections.
+I’m actively revising and refining these docs to make them clearer, more concise, and easier to follow.
+
+If you spot any unclear or repetitive parts, feel free to open an issue or suggest edits. The goal is to make the documentation fully consistent and user-friendly over time.
+
+
 
 
   
