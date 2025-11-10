@@ -4,7 +4,7 @@ This section provides detailed information about the API endpoints available on 
 
 ---
 
-A Postman collection (MVO.postman_collection) has been uploaded, and the Postman documentation is available [Here](https://documenter.getpostman.com/view/40053537/2sB3HooypU). Feel free to explore both.
+A Postman collection (`MVO.postman_collection`) has been uploaded, and the Postman documentation is available [Here](https://documenter.getpostman.com/view/40053537/2sB3HooypU). Feel free to explore both.
 
 Most endpoints require a JSON Web Token (JWT) for authentication. The token must be included in the `Authorization` header of your request.
 
