@@ -1,16 +1,20 @@
 
 **🏠 [Home](README.md)** | **📋 [Features Overview](features-overview.md)** | **⚙️ Configuration** | **📚 [API Reference](api-reference/)**
 
+## Server Configuration
+
+This guide covers the initial setup and configuration of the Server.
+
 ## Initial Setup & Dependencies
 
 ### Prerequisites
 
-*   **Node.js:** Version **20 or higher** is required.
+*   **Node.js >= 20**
 *   **npm:** Node Package Manager (comes bundled with Node.js).
 
 ### 1. Install Dependencies
 
-The server requires the following packages: `axios`,`chalk`, `cookie-parser`, `cors`, `crypto`, `dotenv`, `ejs`, `express`, `express-validator`, `jimp`, `jsonwebtoken`, `logger`, `mariadb`, `sharp`, `winston`,`validator`, and `zod`.
+The server requires the following packages: `axios`,`chalk`, `cookie-parser`, `cors`, `crypto`, `dotenv`, `ejs`, `express`, `express-validator`, `jimp`, `jsonwebtoken`, `logger`, `mariadb`, `sharp`, `winston`, and `zod`.
 
 You must install these dependencies before running the server.
 
@@ -23,7 +27,28 @@ You must install these dependencies before running the server.
 npm install
 ```
 
-### Environment Variables
+
+## 2. Data Files
+The server relies on specific JSON files for item and weapon information. These files are required in the `data/` folder and represent the transformed, structured item data used by the server's logic.
+
+**Using the Provided Archive**
+
+The JSON files are provided in a `.rar` archive within the `data/` folder. To use them just Extract the files from the archive:
+
+```bash
+# Example using unrar (ensure unrar is installed)
+unrar x data/archive.rar data/
+```
+**Importing your own JSON files from cgd.dip**
+
+These JSON files (`itemsInfo.json` and `itemWeaponInfo.json`) are generated from the game's original `.cdb` files. The typical process involves: 
+ 1. Unpacking the `cgd.dip` game file using a tool like **[mvarchiver](https://github.com/d3v1l401/Microvolt-Archiver)** (by d3v1l401).
+ 2. Transforming the extracted `.cdb` files into the required JSON format using a utility like **[cdb_parser](https://github.com/M4sterG/cdb_parser)** (by m4ster4g).
+ 3. You can use your own custom data files by placing your JSON versions in the `data/` folder. If you change these files while the server is running, use the `--cache-reset` option on next startup to refresh the server's cached item data.
+
+
+
+## 3. Environment Variables
 
 The server is configured using a `.env` file. Create this file by copying the provided `.env.example` and filling in the values.
 
@@ -39,50 +64,32 @@ The server is configured using a `.env` file. Create this file by copying the pr
 *   `DAILY_PLAYTIME_DRAW_TRIGGER`: The number of hours a player must be playing to be eligible for a daily playtime reward. Default is 2 hours.
 *   `WHEEL_DRAW_TRIGGER`: The number of hours a player must complete to earn one spin on the wheel. Default is 160 hours.
 
----
 
-## Command-Line Option Details
-To run the server or execute specific scripts, use the node server.js command followed by the desired options.
+
+## 4. Database Initialization (populate & create admin)
+
+### **Populating the database**
+
+The --populate option is a one-time setup command that prepares your database for use with the server. It ensures all required tables and reward-related columns exist before you start running the API.
 ```
-node server.js [--populate] [--create-admin <username> <password>] [--help]
-
-Options
-
-    --populate:(REQUIRED) Run DB migrations/updates before starting.
-    --cache-reset: (Optional) Updates the cached itemsinfo file after changing ItemInfo.json.
-    --create-admin (Optional) <username> <password>: Create initial admin user.
-    --generate-achievements: (Optional) Runs the generateAchievementData.js script. See [Achievement System](achievements.md) for details.
-    --generate-chest: (Optional) : Runs the generateDailyChestItems.js script.
-    --help: Show this help message.
-```
----
-
-This section provides more detailed information on specific command-line options.
-### --populate (Database Setup)
-
-The --populate command is a one-time setup step that prepares your database. It should be run before the first server startup or after significant database schema changes.
-
-Usage:
-
 node server.js --populate
+```
 
-This command executes the dbUpdater.js script, which performs the following actions:
-
-1. Ensure Reward Columns Exist:
-    It checks the users table for the following columns and adds them if they are missing. This is crucial for the server to function correctly.
+This command executes the `dbUpdater.js` script, which performs the following actions:
+Ensure Reward Columns Exist:
+1. It checks the users table for the following columns and adds them if they are missing. This is crucial for the server to function correctly.
         
         WheelSpinsClaimed (INT, DEFAULT 0)
         TwoHoursCounter (INT, DEFAULT 0)
         dailySpinsClaimed (INT, DEFAULT 0)
         EventCurrency (INT, DEFAULT 0)
 
-2. Ensures Player Achievements Table Exists: It creates the player_achievements table if it does not already exist. This table tracks which achievements each player has claimed. Learn more about the [Achievement System](achievements.md).
+2. Ensures Player Achievements Table Exists: It creates the `player_achievements` table if it does not already exist. This table tracks which achievements each player has claimed, More on this later.
 
 After running successfully, the script will exit. You can then proceed with the rest of the guide.
 
----
 
-### Admin User Creation
+### **Admin User Creation**
 
 The `--create-admin` command allows you to create an initial administrator account.
 
@@ -100,124 +107,10 @@ Requirements:
     Username: Must be at least 3 characters long and contain only alphanumeric characters (A-Z, a-z, 0-9).
     Password: Must be at least 6 characters long and include at least one non-alphanumeric symbol (e.g., !, @, #, _).
 
----
-
-### Configuring Wheel and Shop Items
-You can add wheel rewards or shop items via the API or by manually modifying the `/data/config` files. More details can be found in the [Config API Reference](api-reference/admin.md).
-
----
-
-## Script Menu Overview
-
-The script menu handles various in-game reward mechanisms and administrative tasks.
-
-```text
-
-Rewards Server v 0.5
-──────────────────────────────────────────────────────────────
-[+] MVO Scripts Menu
-```
-
-## Usage
-
-To run the server or execute specific scripts, use the `node server.js` command followed by the desired options.
-
-```bash
-node server.js [--populate] [--create-admin <username> <password>] [--help]
-```
-
-### Options
-
-*   `--populate`: Run DB migrations/updates before starting.
-*   `--create-admin <username> <password>`: Create initial admin user.
-*   `--cache-reset`: Updates the cached `itemsinfo` file after changing `ItemInfo.json`.
-*   `--generate-achievements`: Runs the `generateAchievementData.js` script.
-*   `--generate-chest`: Runs the `generateDailyChestItems.js` script.
-*   `--help`: Show this help message.
-
----
-
-## Server Configuration
-
-This guide covers the initial setup and configuration of the Server.
-
-## Data Files
-The server relies on specific JSON files for item and weapon information. These files are required in the `data/` folder.
-
-> ⚠️ You can use your own custom `itemsInfo.json` and `itemWeaponInfo.json` files by placing them in the `data/` folder and Refresh the cache using `--cache-reset`.  
-
-
-### Required JSON Files
-
-- `itemsInfo.json`
-- `itemWeaponInfo.json`
-
-### Using the Provided Archive
-
-The JSON files are provided in a `.rar` archive within the `data/` folder. To use them:
-
-1. Extract the files from the archive:
-
-```bash
-# Example using unrar (ensure unrar is installed)
-unrar x data/archive.rar data/
-```
-
-
----
-
-## Command-Line Option Details
-
-This section provides more detailed information on specific command-line options.
-
-### `--populate` (Database Setup)
-
-The `--populate` command is a one-time setup step that prepares your database. It should be run before the first server startup or after significant database schema changes.
-
-**Usage:**
-
-```bash
-node server.js --populate
-```
-
-This command executes the `dbUpdater.js` script, which performs the following actions:
-
-1.  **Ensures Reward Columns Exist:** It checks the `users` table for the following columns and adds them if they are missing. This is crucial for the server to function correctly.
-    *   `WheelSpinsClaimed` (INT, DEFAULT 0)
-    *   `TwoHoursCounter` (INT, DEFAULT 0)
-    *   `dailySpinsClaimed` (INT, DEFAULT 0)
-    *   `EventCurrency` (INT, DEFAULT 0)
-
-2.  **Ensures Player Achievements Table Exists:** It creates the `player_achievements` table if it does not already exist. This table tracks which achievements each player has claimed.
-
 
 
 After running successfully, the script will exit. You can then start the server normally.
 
-### `--create-admin <username> <password>` (Admin User Creation)
-
-The `--create-admin` command allows you to create an initial administrator account.
-
-**Usage:**
-
-```bash
-node server.js --create-admin <username> <password>
-```
-
-**Example:**
-
-```bash
-node server.js --create-admin AdminUser P@ssword123!
-```
-
-**Requirements:**
-
-*   **Username:** Must be at least 3 characters long and contain only alphanumeric characters (`A-Z`, `a-z`, `0-9`).
-*   **Password:** Must be at least 6 characters long and include at least one non-alphanumeric symbol (e.g., `!`, `@`, `#`, `_`).
-
-This command will create a new user with `Grade` 7, which is the highest administrative level. If a user with the specified username already exists, the script will notify you and exit without making changes.
-
----
 
 ## Next Steps
 
