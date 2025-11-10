@@ -1,0 +1,1738 @@
+{
+	"info": {
+		"_postman_id": "813ce351-7365-4bc6-b5ea-bd3b5e03cfff",
+		"name": "overvolts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40053537",
+		"_collection_link": "https://green-nest.postman.co/workspace/mv_rewards~9138f5cc-764c-4c10-86a0-86a5775384ec/collection/40053537-813ce351-7365-4bc6-b5ea-bd3b5e03cfff?action=share&source=collection_link&creator=40053537"
+	},
+	"item": [
+		{
+			"name": "/api/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"empelo\",\r\n    \"nickname\":\"empaler123\",\r\n    \"password\": \"Password123\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/register",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"register"
+					]
+				},
+				"description": "### API Endpoint: Register User\n\nThis endpoint allows new users to register by providing their credentials. Upon successful registration, the user will be created in the system, and a confirmation response will be returned.\n\n#### Request\n\n**Method:** POST  \n**URL:** `{{HOST}}:{{PORT}}/api/register`\n\n**Request Body:**  \nThe request body must be sent in JSON format and should contain the following parameters:\n\n- `username` (string): The unique username for the user. This will be used for user identification.\n    \n- `nickname` (string): A display name for the user. This can be different from the username and is often used in user interfaces.\n    \n- `password` (string): The password for the user account. It should meet the security requirements established by the system.\n    \n\n**Example Request Body:**\n\n``` json\n{\n  \"username\": \"empelo\",\n  \"nickname\": \"empaler123\",\n  \"password\": \"Password123\"\n}\n\n ```\n\n#### Response\n\nThe response from this endpoint will indicate the success or failure of the registration process. The structure of the response may include:\n\n- success (bolean): Indicates whether the registration was successful or if there was an error.\n    \n- `message` (string): A descriptive message providing additional context about the registration result.\n    \n- `userId` (string, optional): The unique identifier for the newly created user, if registration is successful.\n    \n\n**Example Response:**\n\n``` json\n{\n  \"success\": \"true\",\n  \"message\": \"User registered successfully.\",\n  \n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "api/register-staff",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"johnAdmin\",\r\n    \"nickName\":\"[MOD]JohnDoe\",\r\n    \"password\": \"Password123\",\r\n    \"grade\": 4\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/register",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"register"
+					]
+				},
+				"description": "## Register Staff Endpoint\n\nThis endpoint allows for the registration of new privileged users. By sending a POST request to `/api/register-staff`, clients can create a user account with the specified credentials.\n\n### Request Format\n\nThe request must include a JSON body with the following parameters:\n\n- **username** (string): The unique username for the new user account.\n    \n- **nickName** (string): The display name for the user, which can include special characters.\n    \n- **password** (string): The password for the user account, which should meet security requirements.\n    \n- **grade** (integer): A numerical representation of the user's grade /access level within the game,\n    \n- available grades: 2, 4, 7\n    \n\n#### Example Request Body\n\n``` json\n{\n  \"username\": \"johnAdmin\",\n  \"nickName\": \"[MOD]JohnDoe\",\n  \"password\": \"Password123\",\n  \"grade\": 4\n}\n\n ```\n\n### Response Structure\n\nUpon successful registration, the server responds with a JSON object that contains the following fields:\n\n- **success** (boolean): Indicates whether the registration was successful.\n    \n\n#### Example Response\n\n``` json\n{\n    \"success\": true,\n    \"message\": \"privileged user registered successfully\"\n}\n\n ```\n\nIn case of an error during registration, the response structure may vary, but the `success` field will typically be `false` to indicate the failure."
+			},
+			"response": [
+				{
+					"name": "/register-staff",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"dog222\",\r\n    \"nickName\": \"v1paddd2x\",\r\n    \"password\": \"fckswe\",\r\n    \"grade\":7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/register-staff",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"register-staff"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "68"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"44-3+arsAU+zN23Hy5fhZP7EbP+4O0\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 05 Sep 2025 18:30:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"privileged user registered successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "/api/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"username\": \"vipa001\",\r\n    \"password\":\"fckswe\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/login",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/wheel/draw",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "authToken= ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/wheel/draw",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"wheel",
+						"draw"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "succes",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "authToken= ",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/rewards/draw-wheel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"rewards",
+								"draw-wheel"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=900"
+						},
+						{
+							"key": "RateLimit-Limit",
+							"value": "100"
+						},
+						{
+							"key": "RateLimit-Remaining",
+							"value": "99"
+						},
+						{
+							"key": "RateLimit-Reset",
+							"value": "893"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "99"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"63-aVOU/hCLYZQ8SJd/l3ktlBbuvQA\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Jul 2025 20:23:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"message\": \"Congratulations! You won Short Layered Bob\",\n        \"remainingSpins\": 1\n    }\n}"
+				},
+				{
+					"name": "fail-429",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "authToken= ",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/rewards/draw-wheel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"rewards",
+								"draw-wheel"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=900"
+						},
+						{
+							"key": "RateLimit-Limit",
+							"value": "100"
+						},
+						{
+							"key": "RateLimit-Remaining",
+							"value": "99"
+						},
+						{
+							"key": "RateLimit-Reset",
+							"value": "899"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "102"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"66-0dTfddcUSkSCtWr8BalAGyiPTPA\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 13 Jul 2025 01:40:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"error\": \"you need 160 hours more to claim a spin\",\n    \"hoursLeft\": 160,\n    \"remainingSpins\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "/api/config/wheel/shop/event-shop",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shop_items\": [\r\n        { \r\n            \"itemId\": [\r\n                1110100\r\n            ],\r\n            \"itemName\": \"Anesidoraa Set\",\r\n            \"itemOption\": \"Speed\",\r\n            \"price\":30\r\n        },\r\n        {\r\n            \"itemId\": [\r\n                1110100\r\n                        ],\r\n            \"itemName\": \"Anesidora Set\",\r\n            \"itemOption\": \"Speed\"\r\n        }\r\n      \r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/config/shop",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"config",
+						"shop"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/config/wheel S",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"wheel_items\": [\r\n        { \r\n            \"itemId\": [\r\n                1110100\r\n            ],\r\n            \"itemName\": \"Anesidora Set\",\r\n            \"itemOption\": \"Speed\"\r\n        },\r\n        {\r\n            \"itemId\": [\r\n                1110100\r\n                        ],\r\n            \"itemName\": \"Anesidora Set\",\r\n            \"itemOption\": \"Speed\"\r\n        }\r\n      \r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/config/wheel",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"config",
+								"wheel"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "266"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"10a-wr/HuKsl4OzhmURVp10r8n7gmn8\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Sep 2025 23:07:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"category\": \"wheel_items\",\n        \"data\": [\n            {\n                \"itemId\": [\n                    1110100\n                ],\n                \"itemName\": \"Anesidora Set\",\n                \"itemOption\": \"Speed\"\n            },\n            {\n                \"itemId\": [\n                    1110100\n                ],\n                \"itemName\": \"Anesidora Set\",\n                \"itemOption\": \"Speed\"\n            }\n        ]\n    },\n    \"message\": \"2 item(s) added to wheel_items and memory cache updated.\"\n}"
+				},
+				{
+					"name": "/config/<category>",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"wheel_items\": [\r\n        { \r\n            \"itemId\": [\r\n                1110100\r\n            ],\r\n            \"itemName\": \"Anesidora Set2\",\r\n            \"itemOption\": \"Speed\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/config/wheel",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"config",
+								"wheel"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "62"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3e-gqw/1Qc380DBpBpj6+00AdOVvIw\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 05 Sep 2025 16:16:04 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"error\": \"All submitted items already exist.\"\n}"
+				},
+				{
+					"name": "/config/<category>",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"shop_items\": [\r\n        { \r\n            \"itemId\": [\r\n                1110100\r\n            ],\r\n            \"itemName\": \"Anesidoraa Set\",\r\n            \"itemOption\": \"Speed\",\r\n            \"price\":30\r\n        },\r\n        {\r\n            \"itemId\": [\r\n                1110100\r\n                        ],\r\n            \"itemName\": \"Anesidora Set\",\r\n            \"itemOption\": \"Speed\"\r\n        }\r\n      \r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/config/shop",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"config",
+								"shop"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "44"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2c-ocdKTMQNOj5d6OQlfoaab8mCGX4\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 05 Sep 2025 21:55:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Missing required field(s): price\"\n}"
+				}
+			]
+		},
+		{
+			"name": "/api/achievements/self",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/achievements/self",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"achievements",
+						"self"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/api/self-achievements",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/api/self/achievements",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"self",
+								"achievements"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "18964"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4a14-x2MaWAeY6Mx9IxK3KYleNCRp/go\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 05 Sep 2025 15:24:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"slug\": \"only-up-10\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-11\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-12\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-13\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-14\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-15\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-16\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-17\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-18\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-19\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-20\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-21\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-22\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-23\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-24\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-25\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-26\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-27\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-28\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-29\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-30\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-31\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 96\n            }\n        },\n        {\n            \"slug\": \"only-up-32\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 93\n            }\n        },\n        {\n            \"slug\": \"only-up-33\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 90\n            }\n        },\n        {\n            \"slug\": \"only-up-34\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 88\n            }\n        },\n        {\n            \"slug\": \"only-up-35\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 85\n            }\n        },\n        {\n            \"slug\": \"only-up-36\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 83\n            }\n        },\n        {\n            \"slug\": \"only-up-37\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 81\n            }\n        },\n        {\n            \"slug\": \"only-up-38\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 78\n            }\n        },\n        {\n            \"slug\": \"only-up-39\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 76\n            }\n        },\n        {\n            \"slug\": \"only-up-40\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 75\n            }\n        },\n        {\n            \"slug\": \"only-up-41\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 73\n            }\n        },\n        {\n            \"slug\": \"only-up-42\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 71\n            }\n        },\n        {\n            \"slug\": \"only-up-43\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 69\n            }\n        },\n        {\n            \"slug\": \"only-up-44\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 68\n            }\n        },\n        {\n            \"slug\": \"only-up-45\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 66\n            }\n        },\n        {\n            \"slug\": \"only-up-46\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 65\n            }\n        },\n        {\n            \"slug\": \"only-up-47\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 63\n            }\n        },\n        {\n            \"slug\": \"only-up-48\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 62\n            }\n        },\n        {\n            \"slug\": \"only-up-49\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 61\n            }\n        },\n        {\n            \"slug\": \"only-up-50\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 60\n            }\n        },\n        {\n            \"slug\": \"only-up-51\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 58\n            }\n        },\n        {\n            \"slug\": \"only-up-52\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 57\n            }\n        },\n        {\n            \"slug\": \"only-up-53\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 56\n            }\n        },\n        {\n            \"slug\": \"only-up-54\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 55\n            }\n        },\n        {\n            \"slug\": \"only-up-55\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 54\n            }\n        },\n        {\n            \"slug\": \"only-up-56\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 53\n            }\n        },\n        {\n            \"slug\": \"only-up-57\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 52\n            }\n        },\n        {\n            \"slug\": \"only-up-58\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 51\n            }\n        },\n        {\n            \"slug\": \"only-up-59\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 50\n            }\n        },\n        {\n            \"slug\": \"only-up-60\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 50\n            }\n        },\n        {\n            \"slug\": \"only-up-61\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 49\n            }\n        },\n        {\n            \"slug\": \"only-up-62\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 48\n            }\n        },\n        {\n            \"slug\": \"only-up-63\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 47\n            }\n        },\n        {\n            \"slug\": \"only-up-64\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 46\n            }\n        },\n        {\n            \"slug\": \"only-up-65\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 46\n            }\n        },\n        {\n            \"slug\": \"only-up-66\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 45\n            }\n        },\n        {\n            \"slug\": \"only-up-67\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 44\n            }\n        },\n        {\n            \"slug\": \"only-up-68\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 44\n            }\n        },\n        {\n            \"slug\": \"only-up-69\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 43\n            }\n        },\n        {\n            \"slug\": \"only-up-70\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 42\n            }\n        },\n        {\n            \"slug\": \"only-up-71\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 42\n            }\n        },\n        {\n            \"slug\": \"only-up-72\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 41\n            }\n        },\n        {\n            \"slug\": \"only-up-73\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 41\n            }\n        },\n        {\n            \"slug\": \"only-up-74\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 40\n            }\n        },\n        {\n            \"slug\": \"only-up-75\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 40\n            }\n        },\n        {\n            \"slug\": \"only-up-76\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 39\n            }\n        },\n        {\n            \"slug\": \"only-up-77\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 38\n            }\n        },\n        {\n            \"slug\": \"only-up-78\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 38\n            }\n        },\n        {\n            \"slug\": \"only-up-79\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 37\n            }\n        },\n        {\n            \"slug\": \"only-up-80\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 37\n            }\n        },\n        {\n            \"slug\": \"only-up-81\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 37\n            }\n        },\n        {\n            \"slug\": \"only-up-82\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 36\n            }\n        },\n        {\n            \"slug\": \"only-up-83\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 36\n            }\n        },\n        {\n            \"slug\": \"only-up-84\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 35\n            }\n        },\n        {\n            \"slug\": \"only-up-85\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 35\n            }\n        },\n        {\n            \"slug\": \"only-up-86\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 34\n            }\n        },\n        {\n            \"slug\": \"only-up-87\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 34\n            }\n        },\n        {\n            \"slug\": \"only-up-88\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 34\n            }\n        },\n        {\n            \"slug\": \"only-up-89\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 33\n            }\n        },\n        {\n            \"slug\": \"only-up-90\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 33\n            }\n        },\n        {\n            \"slug\": \"only-up-91\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 32\n            }\n        },\n        {\n            \"slug\": \"only-up-92\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 32\n            }\n        },\n        {\n            \"slug\": \"only-up-93\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 32\n            }\n        },\n        {\n            \"slug\": \"only-up-94\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 31\n            }\n        },\n        {\n            \"slug\": \"only-up-95\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 31\n            }\n        },\n        {\n            \"slug\": \"only-up-96\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 31\n            }\n        },\n        {\n            \"slug\": \"only-up-97\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 30\n            }\n        },\n        {\n            \"slug\": \"only-up-98\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 30\n            }\n        },\n        {\n            \"slug\": \"only-up-99\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 30\n            }\n        },\n        {\n            \"slug\": \"only-up-100\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 30\n            }\n        },\n        {\n            \"slug\": \"only-up-101\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 29\n            }\n        },\n        {\n            \"slug\": \"only-up-102\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 29\n            }\n        },\n        {\n            \"slug\": \"only-up-103\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 29\n            }\n        },\n        {\n            \"slug\": \"only-up-104\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": true,\n                \"overallPercent\": 28\n            }\n        },\n        {\n            \"slug\": \"riflekills-1\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"riflekills-2\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"riflekills-3\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"riflekills-4\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"riflekills-5\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"riflekills-6\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"riflekills-7\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"riflekills-8\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"riflekills-9\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"riflekills-10\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"riflekills-11\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"riflekills-12\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-1\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-2\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-3\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-4\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-5\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-6\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-7\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-8\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-9\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-10\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-11\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-12\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-1\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-2\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-3\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-4\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-5\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-6\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-7\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-8\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-9\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-10\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-11\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-12\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-1\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-2\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-3\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-4\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-5\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-6\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-7\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-8\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-9\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-10\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-11\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-12\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-1\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-2\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-3\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-4\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-5\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-6\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-7\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-8\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-9\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-10\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-11\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-12\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-1\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-2\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-3\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-4\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-5\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-6\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-7\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-8\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-9\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-10\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-11\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-12\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-1\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-2\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-3\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-4\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-5\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-6\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-7\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-8\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-9\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-10\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-11\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-12\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        }\n    ]\n}"
+				},
+				{
+					"name": "/api/self-achievements",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/api/self/achievements",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"self",
+								"achievements"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "19038"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4a5e-YF6UpN0KtrmUIMm8oPMmgH380G0\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 05 Sep 2025 16:52:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"slug\": \"only-up-10\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-11\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-12\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-13\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-14\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-15\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-16\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-17\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-18\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-19\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-20\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-21\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-22\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-23\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-24\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-25\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-26\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-27\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-28\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-29\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-30\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-31\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-32\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-33\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-34\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-35\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-36\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-37\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-38\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-39\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-40\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-41\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-42\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-43\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-44\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-45\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-46\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-47\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-48\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-49\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-50\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-51\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-52\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-53\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-54\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-55\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-56\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-57\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-58\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-59\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-60\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-61\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-62\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-63\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-64\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-65\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-66\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-67\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-68\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-69\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-70\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-71\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-72\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-73\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-74\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-75\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-76\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-77\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-78\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-79\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-80\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-81\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-82\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-83\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-84\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-85\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-86\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-87\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-88\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-89\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-90\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-91\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-92\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-93\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-94\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-95\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-96\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-97\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-98\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-99\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-100\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-101\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-102\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-103\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"only-up-104\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": true,\n                \"inProgress\": false,\n                \"overallPercent\": 100\n            }\n        },\n        {\n            \"slug\": \"riflekills-1\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"riflekills-2\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"riflekills-3\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"riflekills-4\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"riflekills-5\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"riflekills-6\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"riflekills-7\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"riflekills-8\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"riflekills-9\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"riflekills-10\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"riflekills-11\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"riflekills-12\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-1\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-2\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-3\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-4\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-5\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-6\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-7\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-8\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-9\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-10\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-11\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"shotgunkills-12\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-1\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-2\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-3\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-4\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-5\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-6\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-7\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-8\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-9\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-10\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-11\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"sniperkills-12\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-1\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-2\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-3\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-4\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-5\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-6\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-7\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-8\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-9\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-10\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-11\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"bazookakills-12\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-1\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-2\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-3\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-4\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-5\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-6\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-7\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-8\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-9\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-10\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-11\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"grenadekills-12\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-1\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-2\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-3\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-4\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-5\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-6\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-7\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-8\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-9\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-10\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-11\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"gatlingkills-12\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-1\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-2\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-3\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-4\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-5\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-6\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-7\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-8\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-9\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-10\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-11\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        },\n        {\n            \"slug\": \"totalkills-12\",\n            \"status\": {\n                \"claimed\": false,\n                \"unlocked\": false,\n                \"inProgress\": false,\n                \"overallPercent\": 0\n            }\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/api/achievements/claim",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"achievementSlug\": \"level-up-11\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/achievements/claim",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"achievements",
+						"claim"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/api/achievements/claim",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"achievementSlug\": \"level-up-11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/achievements/claim",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"achievements",
+								"claim"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-DiLgsVaJcSsuOYezczCUHGdKG+I\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 12 Sep 2025 11:50:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"data\": {\n        \"message\": \"Requirements not met: level 5/11\"\n    }\n}"
+				},
+				{
+					"name": "/api/achievements/claim",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"achievementSlug\": \"level-up-104\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/achievements/claim",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"achievements",
+								"claim"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "74"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4a-YLqlzYFIgJKjuH/3cb6ThNw+ZXo\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 12 Sep 2025 12:14:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"data\": {\n        \"message\": \"Requirements not met: level 100/104\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/api/achievements/{nickName}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/achievements/{{:nickname}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"achievements",
+						"{{:nickname}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/shop/items",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/shop/items",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"shop",
+						"items"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "{{host}}:{{port}}/api/shop/items",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:{{port}}/api/shop/items",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"shop",
+								"items"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "250"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"fa-p4pcSC8b95WOf5pjaxZh4rmnMoU\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 05 Sep 2025 21:19:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Shop items loaded successfully\",\n    \"data\": {\n        \"items\": [\n            {\n                \"itemId\": [\n                    1110110,\n                    1110240\n                ],\n                \"itemName\": \"Anesidora Set\",\n                \"itemOption\": \"Speed\"\n            },\n            {\n                \"itemId\": [\n                    1110110\n                ],\n                \"itemName\": \"ARMOR OF FAITH\",\n                \"itemOption\": \"Speed\"\n            }\n        ],\n        \"playerCurrencyAmount\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/api/shop/buy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"itemName\": \"ARMOR OF FAITH\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/shop/buy",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"shop",
+						"buy"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "{{host}}:{{port}}/api/shop/items",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:{{port}}/api/shop/items",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"shop",
+								"items"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "250"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"fa-p4pcSC8b95WOf5pjaxZh4rmnMoU\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 05 Sep 2025 21:19:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Shop items loaded successfully\",\n    \"data\": {\n        \"items\": [\n            {\n                \"itemId\": [\n                    1110110,\n                    1110240\n                ],\n                \"itemName\": \"Anesidora Set\",\n                \"itemOption\": \"Speed\"\n            },\n            {\n                \"itemId\": [\n                    1110110\n                ],\n                \"itemName\": \"ARMOR OF FAITH\",\n                \"itemOption\": \"Speed\"\n            }\n        ],\n        \"playerCurrencyAmount\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/daily-chest/draw",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"itemName\": \"ARMOR OF FAITH\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/daily-chest/draw",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"daily-chest",
+						"draw"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "{{host}}:{{port}}/api/shop/items",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:{{port}}/api/shop/items",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"shop",
+								"items"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "250"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"fa-p4pcSC8b95WOf5pjaxZh4rmnMoU\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 05 Sep 2025 21:19:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Shop items loaded successfully\",\n    \"data\": {\n        \"items\": [\n            {\n                \"itemId\": [\n                    1110110,\n                    1110240\n                ],\n                \"itemName\": \"Anesidora Set\",\n                \"itemOption\": \"Speed\"\n            },\n            {\n                \"itemId\": [\n                    1110110\n                ],\n                \"itemName\": \"ARMOR OF FAITH\",\n                \"itemOption\": \"Speed\"\n            }\n        ],\n        \"playerCurrencyAmount\": 0\n    }\n}"
+				},
+				{
+					"name": "/daily-chest/draw",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"itemName\": \"ARMOR OF FAITH\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/api/daily-chest/draw",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"daily-chest",
+								"draw"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "130"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"82-rT8SqsKTrAr65i+QrEBqtNoTdyU\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 12 Sep 2025 02:00:11 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Not enough playtime to draw a reward\",\n    \"data\": {\n        \"canDraw\": false,\n        \"progress\": 0,\n        \"progressPercentage\": \"0%\"\n    }\n}"
+				},
+				{
+					"name": "/daily-chest/draw",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"itemName\": \"ARMOR OF FAITH\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/daily-chest/claim",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"daily-chest",
+								"claim"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "130"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"82-rT8SqsKTrAr65i+QrEBqtNoTdyU\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 12 Sep 2025 12:31:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Not enough playtime to draw a reward\",\n    \"data\": {\n        \"canDraw\": false,\n        \"progress\": 0,\n        \"progressPercentage\": \"0%\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/api/daily-chest/progress",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"itemName\": \"ARMOR OF FAITH\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/daily-chest/progress",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"daily-chest",
+						"progress"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "{{host}}:{{port}}/api/shop/items",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:{{port}}/api/shop/items",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"shop",
+								"items"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "250"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"fa-p4pcSC8b95WOf5pjaxZh4rmnMoU\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 05 Sep 2025 21:19:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Shop items loaded successfully\",\n    \"data\": {\n        \"items\": [\n            {\n                \"itemId\": [\n                    1110110,\n                    1110240\n                ],\n                \"itemName\": \"Anesidora Set\",\n                \"itemOption\": \"Speed\"\n            },\n            {\n                \"itemId\": [\n                    1110110\n                ],\n                \"itemName\": \"ARMOR OF FAITH\",\n                \"itemOption\": \"Speed\"\n            }\n        ],\n        \"playerCurrencyAmount\": 0\n    }\n}"
+				},
+				{
+					"name": "/daily-chest/draw",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"itemName\": \"ARMOR OF FAITH\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/api/daily-chest/draw",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"daily-chest",
+								"draw"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "130"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"82-rT8SqsKTrAr65i+QrEBqtNoTdyU\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 12 Sep 2025 02:00:11 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Not enough playtime to draw a reward\",\n    \"data\": {\n        \"canDraw\": false,\n        \"progress\": 0,\n        \"progressPercentage\": \"0%\"\n    }\n}"
+				},
+				{
+					"name": "/api/daily-chest/progress",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"itemName\": \"ARMOR OF FAITH\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/daily-chest/progress",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"daily-chest",
+								"progress"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "54"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"36-pcFzRiD+s4ucqBXZhsziddN66Vs\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 12 Sep 2025 12:13:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"canDraw\": false,\n        \"progress\": 0\n    }\n}"
+				}
+			]
+		}
+	]
+}
