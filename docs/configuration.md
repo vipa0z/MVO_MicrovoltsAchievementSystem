@@ -31,22 +31,50 @@ npm install
 ## 2. Data Files
 The server relies on specific JSON files for item and weapon information. These files are required in the `data/` folder and represent the transformed, structured item data used by the server's logic.
 
-**Using the Provided Archive**
+**Using the Provided Master list**
 
-The JSON files are provided in a `.rar` archive within the `data/` folder. To use them just Extract the files from the archive:
+A pre-transformed file combining itemsInfo and weaponsInfo is already included at:
+`/data/items.transformed.json`
 
-```bash
-# Example using unrar (ensure unrar is installed)
-unrar x data/archive.rar data/
+#### **Importing your own JSON files from cgd.dip**
+
+1. Unpack the `cgd.dip` file using a tool like **[mvarchiver](https://github.com/d3v1l401/Microvolt-Archiver)** (by d3v1l401).
+2. Transform the extracted `.cdb` files into the required JSON format using a utility like **[cdb_parser](https://github.com/M4sterG/cdb_parser)** (by m4ster4g).
+3. place your JSON files in `/data/SRC_JSON_FILES`.
+4. delete the existing item pool cache `items.transformed.json` file.
+5. Restart the server with the `--cache-reset` option to rebuild the item pool list. 
+6. the new item pool cache `items.transformed.json` file should be generated in the `/data` folder.
+
+#### example:
+
 ```
-**Importing your own JSON files from cgd.dip**
+# Remove the existing transformed items file
+PS > rm .\data\items.transformed.json
 
-These JSON files (`itemsInfo.json` and `itemWeaponInfo.json`) are generated from the game's original `.cdb` files. The typical process involves: 
- 1. Unpacking the `cgd.dip` game file using a tool like **[mvarchiver](https://github.com/d3v1l401/Microvolt-Archiver)** (by d3v1l401).
- 2. Transforming the extracted `.cdb` files into the required JSON format using a utility like **[cdb_parser](https://github.com/M4sterG/cdb_parser)** (by m4ster4g).
- 3. You can use your own custom data files by placing your JSON versions in the `data/` folder. If you change these files while the server is running, use the `--cache-reset` option on next startup to refresh the server's cached item data.
+# verify json files exist:
+PS > ls .\data\SRC_JSON_FILES\
 
 
+-a----          7/9/2025  11:18 PM       85365880 iteminfo.json
+-a----          7/9/2025  11:18 PM       44213687 itemweaponsinfo.json
+
+# Rebuild the master list
+$ node server.js --reset-cache
+
+                      <SNIP>
+
+MVO v0.5
+──────────────────────────────────────────────────────────────
+[INFO] Generating Master Item Pool...
+[SUCCESS] Master list 'items.transformed.json' has been updated!
+
+# Verify generated data
+$ ls .\data\
+                        <SNIP>
+-a----        11/10/2025   7:13 PM       12762219 items.transformed.json
+
+
+```
 
 ## 3. Environment Variables
 

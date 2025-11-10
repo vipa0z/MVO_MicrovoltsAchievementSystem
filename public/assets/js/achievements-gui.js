@@ -16,7 +16,7 @@ class AchievementGUI {
     async loadIconsInfo() {
         try {
             // Load icons info
-            const iconsResponse = await fetch('/data/iconsinfo.json');
+            const iconsResponse = await fetch('/data/SRC_JSON_FILES/iconsInfo.json');
             const iconsData = await iconsResponse.json();
             this.iconsInfo = {};
             
@@ -28,7 +28,7 @@ class AchievementGUI {
             console.log('Loaded icons info:', Object.keys(this.iconsInfo).length, 'icons');
             
             // Load items info for itemId -> iconId mapping
-            const itemsResponse = await fetch('/data/itemInfo.transformed.json');
+            const itemsResponse = await fetch('/data/items.transformed.json');
             const itemsData = await itemsResponse.json();
             this.itemsInfo = {};
             

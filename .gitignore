@@ -51,7 +51,6 @@ build/
 
 # Data files (sensitive or large)
 data/itemInfo.json
-data/itemInfo.transformed.json
 data/itemInfo.transformed
 data/*.rar
 configs/itemsinfo.json
