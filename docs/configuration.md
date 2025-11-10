@@ -49,14 +49,14 @@ A pre-transformed file combining itemsInfo and weaponsInfo is already included a
 
 ```
 # Remove the existing transformed items file
-PS > rm .\data\items.transformed.json
+$ rm .\data\items.transformed.json
+
 
 # verify json files exist:
-PS > ls .\data\SRC_JSON_FILES\
+$ ls .\data\SRC_JSON_FILES\
 
-
--a----          7/9/2025  11:18 PM       85365880 iteminfo.json
--a----          7/9/2025  11:18 PM       44213687 itemweaponsinfo.json
+iteminfo.json
+itemweaponsinfo.json
 
 # Rebuild the master list
 $ node server.js --reset-cache
@@ -70,8 +70,9 @@ MVO v0.5
 
 # Verify generated data
 $ ls .\data\
+
                         <SNIP>
--a----        11/10/2025   7:13 PM       12762219 items.transformed.json
+items.transformed.json
 
 
 ```
