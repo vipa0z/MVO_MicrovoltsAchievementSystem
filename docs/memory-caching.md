@@ -6,9 +6,9 @@ The source files are `itemInfo.json` and `itemsWeaponInfo.json`. Since they use 
 
 ### `loadAndTransformItemsInfo`
 
-1. **Check cache** → Look for `data/itemInfo.transformed.json`.  
+1. **Check cache** → Look for `data/items.transformed.json`.  
 2. **Load from cache** → If found, read directly into memory.  
-3. **Transform and cache** → If not found, read `itemInfo.json`, convert keys to camelCase, save as `itemInfo.transformed.json`.  
+3. **Transform and cache** → If not found, read `itemInfo.json`, convert keys to camelCase, save as `items.transformed.json`.  
 4. **Store in memory** → Keep the transformed data in `MemoryLoader.allItems`.
 
 ---
