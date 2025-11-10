@@ -25,7 +25,7 @@ Usage:
 Options:
   --populate      Run DB migrations/updates before starting.
   --create-admin  Create initial admin user.
-  --cache-reset   updates the cached itemsinfo file after changing ItemInfo.json.
+  --cache-reset   merges itemInfo with weaponsIteminfo to generate the full item pool (items.transformed.json).
   --generate-achievements   runs the generateAchievementData.js script.
   --generate-chest    runs the generateDailyChestItems.js script.
   --help          Show this help message.

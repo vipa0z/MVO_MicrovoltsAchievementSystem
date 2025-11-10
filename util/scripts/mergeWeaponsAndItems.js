@@ -5,8 +5,8 @@ const {logger} = require('../logger');
 async function loadGameData() {
   try {
     // Define file paths
-    const itemsFilePath = path.join(__dirname, '..','..','data', 'itemInfo.json');
-    const weaponsFilePath = path.join(__dirname,'..','..', 'data', 'itemweaponsInfo.json');
+    const itemsFilePath = path.join(__dirname, '..','..','data/SRC_JSON_FILES', 'itemInfo.json');
+    const weaponsFilePath = path.join(__dirname,'..','..', 'data/SRC_JSON_FILES', 'itemweaponsInfo.json');
     
     // Load all three files
     const itemsInfo = JSON.parse(await fs.readFile(itemsFilePath, 'utf8'));
@@ -52,7 +52,7 @@ async function processGameData() {
 
 // Step 5: Save the processed data
 async function saveProcessedData(data) {
-  const outputFile = path.join(__dirname, '..','..', 'data', 'itemInfo.transformed.json');
+  const outputFile = path.join(__dirname, '..','..', 'data', 'items.transformed.json');
   
   try {
     await fs.writeFile(outputFile, JSON.stringify(data, null, 2));
@@ -64,7 +64,7 @@ async function saveProcessedData(data) {
 
 // Step 6: Main execution function
 async function run() {
-  logger.info("Starting merging items and weapons...");
+  logger.info("Generating Master Item Pool...");
 
   try {
     
@@ -72,7 +72,7 @@ async function run() {
     
     
     await saveProcessedData(processedData);
-    logger.success(`Master list 'itemInfo.transformed.json' has been updated!`);
+    logger.success(`Master list 'items.transformed.json' has been updated!`);
     process.exit(0);
     
   } catch (error) {

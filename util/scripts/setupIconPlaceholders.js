@@ -10,7 +10,7 @@ const path = require('path');
 function setupIconPlaceholders() {
     const iconSourceDir = path.join(__dirname, '../../data/icon');
     const iconTargetDir = path.join(__dirname, '../../public/icons');
-    const iconsInfoPath = path.join(__dirname, '../../data/iconsinfo.json');
+    const iconsInfoPath = path.join(__dirname, '../../data/SRC_JSON_FILES/iconsInfo.json');
     
     // Create target directory if it doesn't exist
     if (!fs.existsSync(iconTargetDir)) {

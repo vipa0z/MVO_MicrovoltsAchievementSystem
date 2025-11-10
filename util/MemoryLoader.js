@@ -15,7 +15,7 @@ class MemoryLoader {
     
  // looks for transformed file first, if not found runs mergeWeapons And Items
     static async loadAndTransformItemsInfo() {
-        const transformedPath = path.join(__dirname, '..', 'data', 'itemInfo.transformed.json');
+        const transformedPath = path.join(__dirname, '..', 'data', 'items.transformed.json');
     
         try {
             // Try loading transformed version
