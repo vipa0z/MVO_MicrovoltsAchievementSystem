@@ -20,10 +20,10 @@ The following features were fully implemented though testing was not comprehensi
 - daily playtime chest
 
 ### GUI Status
-This project was intended as a backend implementation, and due to limitations with EJS templating, the web interface is technically functional but visually problematic. The CSS scaling is completely off and it's not responsive whatsoever. It works well enough for testing backend functionality, but don't expect it to look good on any screen size.
+This project was intended as a backend implementation, and due to limitations with EJS templating, the web interface for the achievement system is technically functional but visually problematic. The CSS scaling is completely off and it's not responsive whatsoever. It works well enough for testing backend functionality, but don't expect it to look good on any screen size.
 
 ![Current GUI State](docs/achievements-buggy.png)
-
+ i might get around to adding the shop GUI later on as it may be easier to implement.
 ## Achievement system
 The original setup rewarded MP, Battery, coins..., and some special items unlocked after reaching level 90, those rewards relied heavily on farming, which made progression feel grindy. try to keep a good balance so players do not get items too early or too late.
 
