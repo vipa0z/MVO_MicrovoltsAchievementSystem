@@ -1,11 +1,29 @@
 
 **🏠 [Home](README.md)** | **📋 [Features Overview](features-overview.md)** | **⚙️ Configuration** | **📚 [API Reference](api-reference/)**
 
-#### Environment Variables
+## Initial Setup & Dependencies
 
-The server is configured using a .env file. Create this file by copying the provided .env.example and filling in the values.
+### Prerequisites
 
-    ### Environment Variables
+*   **Node.js:** Version **20 or higher** is required.
+*   **npm:** Node Package Manager (comes bundled with Node.js).
+
+### 1. Install Dependencies
+
+The server requires the following packages: `axios`,`chalk`, `cookie-parser`, `cors`, `crypto`, `dotenv`, `ejs`, `express`, `express-validator`, `jimp`, `jsonwebtoken`, `logger`, `mariadb`, `sharp`, `winston`,`validator`, and `zod`.
+
+You must install these dependencies before running the server.
+
+**Usage:**
+
+1.  Navigate to the root directory of the project in your terminal.
+2.  Run the dependency installation command:
+
+```
+npm install
+```
+
+### Environment Variables
 
 The server is configured using a `.env` file. Create this file by copying the provided `.env.example` and filling in the values.
 
