@@ -17,6 +17,22 @@ The Achievement System tracks player progress across various in-game activities 
 - **In Progress**: Player has made progress toward the achievement
 
 
+
+
+### Configuration & Data Generation
+Achievements are configured through the `generateAchievements` script:
+
+```bash
+node server.js --generate-achievements
+```
+
+This script may need editing to:
+- Add new achievement types
+- Modify reward structures
+- Update progression requirements
+- Add seasonal or event achievements
+
+
 ## API Endpoints
 
 ### Get Personal Achievements
@@ -70,19 +86,6 @@ The system tracks various metrics including:
 - Special event participation
 - Currency accumulation
 - And many more activities
-
-## Configuration & Data Generation
-Achievements are configured through the `generateAchievements` script:
-
-```bash
-node server.js --generate-achievements
-```
-
-This script may need editing to:
-- Add new achievement types
-- Modify reward structures
-- Update progression requirements
-- Add seasonal or event achievements
 
 
 ## Social Features
