@@ -1,6 +1,5 @@
 # Achievement System
 
-**🏠 [Home](README.md)** | **📋 [Features Overview](features-overview.md)** | **🛒 [Event Shop](event-shop.md)** | **🎡 [Referral Wheel](referral-wheel.md)** | **📦 [Daily Chest](daily-chest.md)** | **🏆 Achievements**
 
 ## Overview
 The Achievement System tracks player progress across various in-game activities and rewards players for reaching specific milestones. The system supports both personal achievement tracking and social achievement viewing.
@@ -13,9 +12,10 @@ The Achievement System tracks player progress across various in-game activities 
 
 ## Achievement States
 - **Locked**: Achievement requirements not yet met
-- **In Progress**: Player has made progress toward the achievement
-- **Completed**: Achievement requirements fulfilled, ready to claim
+- **Unlocked**: Achievement requirements fulfilled, ready to claim
 - **Claimed**: Achievement reward has been collected
+- **In Progress**: Player has made progress toward the achievement
+
 
 ## API Endpoints
 
@@ -64,9 +64,6 @@ Claims a completed achievement and awards rewards.
 }
 ```
 
-## Achievement Gui Development Progress
-![progress](achievements-buggy.png)
-
 The system tracks various metrics including:
 - Kill counts by weapon type
 - Playtime milestones
@@ -87,8 +84,6 @@ This script may need editing to:
 - Update progression requirements
 - Add seasonal or event achievements
 
-## GUI Status
-**Note**: The current achievement GUI needs to be rewritten as the scaling is currently off. The functionality works correctly through the API, but the visual presentation requires improvement.
 
 ## Social Features
 Players can view each other's completed achievements, creating a social aspect to the achievement system and allowing for friendly competition.
