@@ -21,9 +21,10 @@ Event Shop items must be configured with a **price field** using the Config API.
 
 ## API Endpoints
 
-
-### Configuration
-Shop items are configured via the Config endpoint at `/api/admin/config/shop` or the config file in `/data/configs`. Items must have valid ItemIds and the required price field to be added to the shop.
+```
+/api/config/shop
+```
+Shop items are configured via the Config endpoint at `/api/admin/config/shop` and can be manually inserted into the config file at`/data/configs`. Items must have valid IDs and a price field set.
 
 Example:
 ```json
@@ -43,7 +44,6 @@ Example:
 ]
 ```
 
-### Get Shop Items
 ```
 GET /api/event-shop
 ```
@@ -61,14 +61,13 @@ Returns all available shop items and player's current Event Currency balance.
 }
 ```
 
-### Purchase Item
 ```
 POST /api/event-shop/purchase
 ```
 Allows players to purchase items from the event shop. 
 
-Suppose the item costs 30:
-**Request Body:**
+Suppose an item costs 30:
+
 ```json
 {
   "itemName": "Devil Headband"
