@@ -9,6 +9,12 @@ The Referral Wheel is a time-gated reward system that allows players to spin for
 - **Spin Requirement**: Players must accumulate 160 hours of playtime to earn one spin
 - **Random Rewards**: Rewards are drawn randomly from the configured wheel items pool
 - **Multiple Spins**: Players can accumulate multiple spins if they exceed the hour requirement
+- **Log Output**: The Referral Wheel automatically generates a wheel.log file in the public directory, similar to the legacy MicroVolts system.
+## Configuration
+Wheel items can be manually configured at
+`/data/config/wheel.json`
+or via the API endpoint:
+`/api/admin/config/wheel`
 
 ## API Endpoints
 
@@ -48,13 +54,7 @@ Performs a wheel spin and awards a random item.
 }
 ```
 
-## Configuration
-Wheel items are configured via the Config API at `/api/admin/config/wheel`. Items are randomly selected based on equal probability distribution.
 
-## Time Tracking
-The system tracks player playtime and automatically calculates eligibility. The 160-hour requirement is configurable via the `WHEEL_DRAW_TRIGGER` environment variable.
-
----
 
 ## Navigation
 
