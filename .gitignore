@@ -50,11 +50,8 @@ build/
 .temp/
 
 # Data files (sensitive or large)
-data/itemInfo.json
-data/itemInfo.transformed
-data/*.rar
-configs/itemsinfo.json
-*/itemsinfo.json
+data/SRC_JSON_FILES/iteminfo.json
+data/SRC_JSON_FILES/itemweaponsinfo.json
 
 # Development tools
 .trae
