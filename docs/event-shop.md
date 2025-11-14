@@ -7,7 +7,10 @@ The Event Shop is a  store where players can purchase exclusive items using Even
 
 ## Purpose
 - Offers exclusive items not available through other reward systems
-- Creates incentive for players to participate in events and activities that award Event Currency
+- Creates incentive for players to participate in events or activities that award Event Currency
+
+## Currency Source
+Players earn Event Currency through playing fifteen(15) minutes or longer matches. 
 
 ## Configuration Requirements
 Event Shop items must be configured with a **price field** using the Config API. Each item requires:
@@ -18,7 +21,29 @@ Event Shop items must be configured with a **price field** using the Config API.
 
 ## API Endpoints
 
-### Get Shop Items
+```
+/api/config/shop
+```
+Shop items are configured via the Config endpoint at `/api/admin/config/shop` and can be manually inserted into the config file at`/data/configs`. Items must have valid IDs and a price field set.
+
+Example:
+```json
+[
+  {
+    "itemId": 12345,
+    "itemName": "devil headband",
+    "itemOption": "Shotgun bullets",
+    "price": 30
+  },
+  {
+    "itemId": 67890,
+    "itemName": "troll face",
+    "itemOption": "sniper bullets",
+    "price": 25
+  }
+]
+```
+
 ```
 GET /api/event-shop
 ```
@@ -36,19 +61,19 @@ Returns all available shop items and player's current Event Currency balance.
 }
 ```
 
-### Purchase Item
 ```
 POST /api/event-shop/purchase
 ```
-Allows players to purchase items from the event shop.
+Allows players to purchase items from the event shop. 
 
-**Request Body:**
+Suppose an item costs 30:
+
 ```json
 {
   "itemName": "Devil Headband"
 }
-```
 
+```
 **Response:**
 ```json
 {
@@ -56,31 +81,11 @@ Allows players to purchase items from the event shop.
   "message": "Item purchased successfully",
   "data": {
     "item": {...},
-    "currencyAmount": 1200
+    "currencyAmount": 6
   }
 }
 ```
 
-## Configuration
-Shop items are configured via the Config API at `/api/admin/config/shop`. Items must include the required price field to be valid for the event shop.
-```json
-[
-  {
-    "itemId": 12345,
-    "itemName": "itemname",
-    "itemOption": "item stat (speed/tank) it's also an optional field",
-    "price": 50
-  },
-  {
-    "itemId": 67890,
-    "itemName": "itemname2",
-    "itemOption": "stat-here",
-    "price": 25
-  }
-]
-```
-## Currency Source
-Players earn Event Currency through playing fifteen(15) minutes or longer matches
 
 ---
 
